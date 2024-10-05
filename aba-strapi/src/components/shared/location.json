@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_locations",
+  "info": {
+    "displayName": "location"
+  },
+  "options": {},
+  "attributes": {
+    "address": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "zipCode": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    }
+  }
+}

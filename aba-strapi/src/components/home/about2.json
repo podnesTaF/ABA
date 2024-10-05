@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_home_about2s",
+  "info": {
+    "displayName": "About2"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "ctaButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "cta.cta-text"
+    }
+  }
+}
