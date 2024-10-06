@@ -1,12 +1,12 @@
 {
-  "collectionName": "components_home_about_abs",
+  "collectionName": "components_shared_base_info_sections",
   "info": {
-    "displayName": "AboutAB",
+    "displayName": "baseInfoSection",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "sectionTitle": {
+    "title": {
       "type": "string"
     },
     "description": {
@@ -16,12 +16,7 @@
       },
       "customField": "plugin::ckeditor5.CKEditor"
     },
-    "ctaButton": {
-      "type": "component",
-      "repeatable": false,
-      "component": "cta.cta-text"
-    },
-    "sideImage": {
+    "media": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -32,13 +27,15 @@
         "audios"
       ]
     },
-    "coreValues": {
+    "ctaButton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "cta.cta-text"
+    },
+    "externalLinks": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::core-value.core-value"
-    },
-    "title": {
-      "type": "string"
+      "target": "api::external-link.external-link"
     }
   }
 }

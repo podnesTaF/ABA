@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "federation_pages",
+  "info": {
+    "singularName": "federation-page",
+    "pluralName": "federation-pages",
+    "displayName": "FederationPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.hero"
+    },
+    "about": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.base-info-section"
+    },
+    "structure": {
+      "displayName": "Structure",
+      "type": "component",
+      "repeatable": false,
+      "component": "fedirations.structure"
+    },
+    "legal": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.document-section"
+    }
+  }
+}

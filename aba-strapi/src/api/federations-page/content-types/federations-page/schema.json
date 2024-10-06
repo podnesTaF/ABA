@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "federations_pages",
+  "info": {
+    "singularName": "federations-page",
+    "pluralName": "federations-pages",
+    "displayName": "FederationsPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.hero"
+    },
+    "aboutABA": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.base-info-section"
+    },
+    "federationHead": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.base-info-section"
+    },
+    "federations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::federation.federation"
+    }
+  }
+}

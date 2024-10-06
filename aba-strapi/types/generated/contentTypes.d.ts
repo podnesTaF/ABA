@@ -485,6 +485,41 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
+  collectionName: 'about_pages';
+  info: {
+    singularName: 'about-page';
+    pluralName: 'about-pages';
+    displayName: 'AboutPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    missions: Schema.Attribute.Component<'shared.base-info-section', true>;
+    values: Schema.Attribute.Component<'about.values', false>;
+    differences: Schema.Attribute.Component<'shared.base-info-section', false>;
+    history: Schema.Attribute.Component<'shared.base-info-section', false>;
+    structure: Schema.Attribute.Component<'about.structure', false>;
+    legal: Schema.Attribute.Component<'shared.document-section', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-page.about-page'
+    >;
+  };
+}
+
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
@@ -530,6 +565,10 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    newsCategories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-category.news-category'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -541,6 +580,44 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::article.article'
+    >;
+  };
+}
+
+export interface ApiContactRequestContactRequest
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'contact_requests';
+  info: {
+    singularName: 'contact-request';
+    pluralName: 'contact-requests';
+    displayName: 'ContactRequest';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    subject: Schema.Attribute.Enumeration<
+      ['events', 'partnership', 'support']
+    > &
+      Schema.Attribute.Required;
+    message: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 10;
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-request.contact-request'
     >;
   };
 }
@@ -646,6 +723,143 @@ export interface ApiFederationFederation extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFederationPageFederationPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'federation_pages';
+  info: {
+    singularName: 'federation-page';
+    pluralName: 'federation-pages';
+    displayName: 'FederationPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    hero: Schema.Attribute.Component<'shared.hero', false>;
+    about: Schema.Attribute.Component<'shared.base-info-section', false>;
+    structure: Schema.Attribute.Component<'fedirations.structure', false>;
+    legal: Schema.Attribute.Component<'shared.document-section', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::federation-page.federation-page'
+    >;
+  };
+}
+
+export interface ApiFederationsPageFederationsPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'federations_pages';
+  info: {
+    singularName: 'federations-page';
+    pluralName: 'federations-pages';
+    displayName: 'FederationsPage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    hero: Schema.Attribute.Component<'shared.hero', false>;
+    aboutABA: Schema.Attribute.Component<'shared.base-info-section', false>;
+    federationHead: Schema.Attribute.Component<
+      'shared.base-info-section',
+      false
+    >;
+    federations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::federation.federation'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::federations-page.federations-page'
+    >;
+  };
+}
+
+export interface ApiFooterFooter extends Struct.SingleTypeSchema {
+  collectionName: 'footers';
+  info: {
+    singularName: 'footer';
+    pluralName: 'footers';
+    displayName: 'Footer';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contactDetails: Schema.Attribute.Component<
+      'shared.base-info-section',
+      true
+    >;
+    copyright: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    links: Schema.Attribute.Component<'shared.link', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::footer.footer'>;
+  };
+}
+
+export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
+  collectionName: 'headers';
+  info: {
+    singularName: 'header';
+    pluralName: 'headers';
+    displayName: 'Header';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    largeLogo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    smallLogo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    socialMedias: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::external-link.external-link'
+    >;
+    languages: Schema.Attribute.Component<'shared.link', true>;
+    primaryLinks: Schema.Attribute.Component<'shared.primary-link', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::header.header'>;
+  };
+}
+
 export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   collectionName: 'home_pages';
   info: {
@@ -659,6 +873,10 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   };
   attributes: {
     hero: Schema.Attribute.Component<'home.home-page', false>;
+    aboutAB: Schema.Attribute.Component<'home.about-ab', false>;
+    aboutABA: Schema.Attribute.Component<'home.about2', true>;
+    recentNews: Schema.Attribute.Component<'home.home-news', false>;
+    federations: Schema.Attribute.Component<'home.federations', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -670,6 +888,67 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::home-page.home-page'
+    >;
+  };
+}
+
+export interface ApiNewsCategoryNewsCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'news_categories';
+  info: {
+    singularName: 'news-category';
+    pluralName: 'news-categories';
+    displayName: 'NewsCategory';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-category.news-category'
+    >;
+  };
+}
+
+export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
+  collectionName: 'news_pages';
+  info: {
+    singularName: 'news-page';
+    pluralName: 'news-pages';
+    displayName: 'NewsPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    hero: Schema.Attribute.Component<'shared.hero', false>;
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-category.news-category'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-page.news-page'
     >;
   };
 }
@@ -702,6 +981,98 @@ export interface ApiPersonPerson extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::person.person'>;
+  };
+}
+
+export interface ApiRacePageRacePage extends Struct.SingleTypeSchema {
+  collectionName: 'race_pages';
+  info: {
+    singularName: 'race-page';
+    pluralName: 'race-pages';
+    displayName: 'RacePage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    hero: Schema.Attribute.Component<'shared.hero', false>;
+    categoryPreview: Schema.Attribute.Component<
+      'shared.base-info-section',
+      false
+    >;
+    categories: Schema.Attribute.Component<'shared.base-info-section', true>;
+    ranking: Schema.Attribute.Component<'shared.base-info-section', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::race-page.race-page'
+    >;
+  };
+}
+
+export interface ApiRacesPageRacesPage extends Struct.SingleTypeSchema {
+  collectionName: 'races_pages';
+  info: {
+    singularName: 'races-page';
+    pluralName: 'races-pages';
+    displayName: 'RacesPage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    links: Schema.Attribute.Component<'shared.link', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::races-page.races-page'
+    >;
+  };
+}
+
+export interface ApiTournamentsPageTournamentsPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'tournaments_pages';
+  info: {
+    singularName: 'tournaments-page';
+    pluralName: 'tournaments-pages';
+    displayName: 'TournamentsPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    hero: Schema.Attribute.Component<'shared.hero', false>;
+    news: Schema.Attribute.Component<'home.home-news', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tournaments-page.tournaments-page'
+    >;
   };
 }
 
@@ -1080,12 +1451,23 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::article.article': ApiArticleArticle;
+      'api::contact-request.contact-request': ApiContactRequestContactRequest;
       'api::core-value.core-value': ApiCoreValueCoreValue;
       'api::external-link.external-link': ApiExternalLinkExternalLink;
       'api::federation.federation': ApiFederationFederation;
+      'api::federation-page.federation-page': ApiFederationPageFederationPage;
+      'api::federations-page.federations-page': ApiFederationsPageFederationsPage;
+      'api::footer.footer': ApiFooterFooter;
+      'api::header.header': ApiHeaderHeader;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::news-category.news-category': ApiNewsCategoryNewsCategory;
+      'api::news-page.news-page': ApiNewsPageNewsPage;
       'api::person.person': ApiPersonPerson;
+      'api::race-page.race-page': ApiRacePageRacePage;
+      'api::races-page.races-page': ApiRacesPageRacesPage;
+      'api::tournaments-page.tournaments-page': ApiTournamentsPageTournamentsPage;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;

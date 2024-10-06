@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "race_pages",
+  "info": {
+    "singularName": "race-page",
+    "pluralName": "race-pages",
+    "displayName": "RacePage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.hero"
+    },
+    "categoryPreview": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.base-info-section"
+    },
+    "categories": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.base-info-section"
+    },
+    "ranking": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.base-info-section"
+    }
+  }
+}

@@ -17,6 +17,26 @@
       "type": "component",
       "repeatable": false,
       "component": "home.home-page"
+    },
+    "aboutAB": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.about-ab"
+    },
+    "aboutABA": {
+      "type": "component",
+      "repeatable": true,
+      "component": "home.about2"
+    },
+    "recentNews": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.home-news"
+    },
+    "federations": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.federations"
     }
   }
 }

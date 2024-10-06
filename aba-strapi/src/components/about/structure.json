@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_about_structures",
+  "info": {
+    "displayName": "Structure"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "people": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::person.person"
+    }
+  }
+}

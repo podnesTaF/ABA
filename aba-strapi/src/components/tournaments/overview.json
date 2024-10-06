@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_tournaments_overviews",
+  "info": {
+    "displayName": "Overview"
+  },
+  "options": {},
+  "attributes": {
+    "mainArticle": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.base-info-section"
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.base-info-section"
+    },
+    "matters": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.base-info-section"
+    }
+  }
+}
