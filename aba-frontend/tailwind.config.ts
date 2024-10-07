@@ -9,6 +9,11 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+			fontSize: {
+				base: "16px",
+				lg: "18px",
+				xl: "20px",
+			},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

@@ -1,3 +1,5 @@
+import {Media} from "@/models/shared/media";
+
 export type PrimaryLink = {
     id: number;
     title: string;
@@ -13,17 +15,15 @@ export type Link = {
     icon: string | null;
 };
 
-export type HeaderData = {
+export interface ExternalLink {
     id: number;
     documentId: string;
+    name: string;
+    link: string;
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
     locale: string | null;
-    primaryLinks: PrimaryLink[];
-};
-
-export type HeaderResponse = {
-    data: HeaderData;
-    meta: Record<string, unknown>;
-};
+    icon: Media;
+    localizations: any[];
+}
