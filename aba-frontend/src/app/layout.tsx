@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import React from "react";
+import Providers from "@/lib/providers/Providers";
+import Link from "next/link";
+import {Button} from "@/components/ui/button";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const helvetica = localFont({
+  src: "./fonts/Helvetica.ttf",
+  variable: "--font-helvetica",
+  weight: "400 700",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const montserrat = localFont({
+  src: "./fonts/Montserrat-VariableFont_wght.ttf",
+  variable: "--font-montserrat",
+  weight: "400 500 600 700 800",
 });
 
 export const metadata: Metadata = {
@@ -26,10 +30,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${helvetica.variable} ${montserrat.variable} antialiased`}
       >
+      <Providers>
+        <div className="flex gap-4">
+          <Link href={"/about"}>
+            <Button variant={"ghost"}>
+              About
+            </Button>
+          </Link>
+          <Link href={"/"}>
+            <Button variant={"ghost"}>
+              Home
+            </Button>
+          </Link>
+        </div>
         {children}
+      </Providers>
       </body>
     </html>
   );
 }
+
