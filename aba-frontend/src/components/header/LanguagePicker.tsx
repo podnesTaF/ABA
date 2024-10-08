@@ -6,7 +6,7 @@ import {Command, CommandGroup, CommandItem, CommandList} from "@/components/ui/c
 import {CheckIcon} from "lucide-react";
 import {cn} from "@/lib/utils";
 
-const LanguagePicker = () => {
+const LanguagePicker = ({variant}: {variant?: "dark" | 'light'}) => {
 	const [open, setOpen] = useState(false)
 	const [value, setValue] = React.useState("")
 
@@ -17,11 +17,11 @@ const LanguagePicker = () => {
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
 			<PopoverTrigger asChild>
-				<Button aria-expanded={open} variant="ghost">
+				<Button aria-expanded={open} variant="ghost" className={`text-lg font-semibold ${variant === 'dark' ? "text-black" : "text-white"}`}>
 					{value
 						? value
 						: "ENG"}
-					<CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+					<CaretSortIcon className="ml-2 h-6 w-4 shrink-0 opacity-80" />
 				</Button>
 			</PopoverTrigger>
 			<PopoverContent className="w-auto p-0">
@@ -35,7 +35,7 @@ const LanguagePicker = () => {
 									setValue(currentValue === value ? "" : currentValue)
 									setOpen(false)
 								}}
-								className={"font-semibold flex gap-3 items-center"}
+								className={`font-semibold flex gap-3 items-center ${variant === 'dark' ? 'text-black' : "text-white"}`}
 							>
 								Eng
 								<CheckIcon

@@ -23,12 +23,12 @@ const NavItem = ({link, isActive}: NavItemProps) => {
 	return (
 		<NavigationMenuItem>
 			{single ? (
-					<NavigationMenuLink href={link.link} className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-white text-lg font-semibold uppercase')}>
+					<NavigationMenuLink href={link.link} className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-white text-base font-semibold capitalize')}>
 						{link.title}
 					</NavigationMenuLink>
 			) : (
 				<div className={'relative'} onMouseEnter={() => setActive(true)} onMouseLeave={() => setActive(false)}>
-					<NavigationMenuTrigger className={"py-0 px-5 text-white text-lg font-semibold uppercase"}>
+					<NavigationMenuTrigger className={"py-0 px-5 text-white text-base font-semibold capitalize"}>
 						{link.title}
 						<div
 							className={"absolute bottom-0 right-0 h-2 w-2 bg-white transition-all duration-100 group-data-[state=open]:bg-gray-200 triangle"}>
