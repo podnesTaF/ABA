@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_locations",
   "info": {
-    "displayName": "location"
+    "displayName": "location",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -15,7 +16,9 @@
       "type": "string"
     },
     "region": {
-      "type": "string"
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::region.region"
     }
   }
 }

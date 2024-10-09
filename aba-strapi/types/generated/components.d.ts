@@ -29,12 +29,13 @@ export interface SharedLocation extends Struct.ComponentSchema {
   collectionName: 'components_shared_locations';
   info: {
     displayName: 'location';
+    description: '';
   };
   attributes: {
     address: Schema.Attribute.String;
     city: Schema.Attribute.String;
     zipCode: Schema.Attribute.String;
-    region: Schema.Attribute.String;
+    region: Schema.Attribute.Relation<'oneToOne', 'api::region.region'>;
   };
 }
 
@@ -168,6 +169,7 @@ export interface HomeHomeNews extends Struct.ComponentSchema {
   collectionName: 'components_home_home_news';
   info: {
     displayName: 'home News';
+    description: '';
   };
   attributes: {
     sectionTitle: Schema.Attribute.RichText &
@@ -178,6 +180,7 @@ export interface HomeHomeNews extends Struct.ComponentSchema {
         }
       >;
     ctaButton: Schema.Attribute.Component<'cta.cta-text', false>;
+    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -246,18 +249,6 @@ export interface HomeAboutAb extends Struct.ComponentSchema {
   };
 }
 
-export interface CtaCtaText extends Struct.ComponentSchema {
-  collectionName: 'components_cta_cta_texts';
-  info: {
-    displayName: 'CTA Button';
-    description: '';
-  };
-  attributes: {
-    link: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-  };
-}
-
 export interface FedirationsStructure extends Struct.ComponentSchema {
   collectionName: 'components_fedirations_structures';
   info: {
@@ -272,6 +263,18 @@ export interface FedirationsStructure extends Struct.ComponentSchema {
         }
       >;
     people: Schema.Attribute.Relation<'oneToMany', 'api::person.person'>;
+  };
+}
+
+export interface CtaCtaText extends Struct.ComponentSchema {
+  collectionName: 'components_cta_cta_texts';
+  info: {
+    displayName: 'CTA Button';
+    description: '';
+  };
+  attributes: {
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -348,8 +351,8 @@ declare module '@strapi/strapi' {
       'home.federations': HomeFederations;
       'home.about2': HomeAbout2;
       'home.about-ab': HomeAboutAb;
-      'cta.cta-text': CtaCtaText;
       'fedirations.structure': FedirationsStructure;
+      'cta.cta-text': CtaCtaText;
       'content-block.text': ContentBlockText;
       'content-block.image-block': ContentBlockImageBlock;
       'about.values': AboutValues;

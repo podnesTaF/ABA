@@ -1046,6 +1046,31 @@ export interface ApiRacesPageRacesPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiRegionRegion extends Struct.CollectionTypeSchema {
+  collectionName: 'regions';
+  info: {
+    singularName: 'region';
+    pluralName: 'regions';
+    displayName: 'Region';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    flag: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::region.region'>;
+  };
+}
+
 export interface ApiTournamentsPageTournamentsPage
   extends Struct.SingleTypeSchema {
   collectionName: 'tournaments_pages';
@@ -1467,6 +1492,7 @@ declare module '@strapi/strapi' {
       'api::person.person': ApiPersonPerson;
       'api::race-page.race-page': ApiRacePageRacePage;
       'api::races-page.races-page': ApiRacesPageRacesPage;
+      'api::region.region': ApiRegionRegion;
       'api::tournaments-page.tournaments-page': ApiTournamentsPageTournamentsPage;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
