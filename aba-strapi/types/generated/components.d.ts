@@ -1,17 +1,5 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
-export interface TournamentsOverview extends Struct.ComponentSchema {
-  collectionName: 'components_tournaments_overviews';
-  info: {
-    displayName: 'Overview';
-  };
-  attributes: {
-    mainArticle: Schema.Attribute.Component<'shared.base-info-section', false>;
-    features: Schema.Attribute.Component<'shared.base-info-section', true>;
-    matters: Schema.Attribute.Component<'shared.base-info-section', true>;
-  };
-}
-
 export interface SharedPrimaryLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_primary_links';
   info: {
@@ -140,6 +128,18 @@ export interface SharedBaseInfoSection extends Struct.ComponentSchema {
       'oneToMany',
       'api::external-link.external-link'
     >;
+  };
+}
+
+export interface TournamentsOverview extends Struct.ComponentSchema {
+  collectionName: 'components_tournaments_overviews';
+  info: {
+    displayName: 'Overview';
+  };
+  attributes: {
+    mainArticle: Schema.Attribute.Component<'shared.base-info-section', false>;
+    features: Schema.Attribute.Component<'shared.base-info-section', true>;
+    matters: Schema.Attribute.Component<'shared.base-info-section', true>;
   };
 }
 
@@ -338,7 +338,6 @@ export interface AboutStructure extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'tournaments.overview': TournamentsOverview;
       'shared.primary-link': SharedPrimaryLink;
       'shared.location': SharedLocation;
       'shared.link': SharedLink;
@@ -346,6 +345,7 @@ declare module '@strapi/strapi' {
       'shared.footer': SharedFooter;
       'shared.document-section': SharedDocumentSection;
       'shared.base-info-section': SharedBaseInfoSection;
+      'tournaments.overview': TournamentsOverview;
       'home.home-page': HomeHomePage;
       'home.home-news': HomeHomeNews;
       'home.federations': HomeFederations;

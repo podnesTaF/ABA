@@ -505,6 +505,7 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     history: Schema.Attribute.Component<'shared.base-info-section', false>;
     structure: Schema.Attribute.Component<'about.structure', false>;
     legal: Schema.Attribute.Component<'shared.document-section', false>;
+    hero: Schema.Attribute.Component<'shared.hero', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -967,11 +968,8 @@ export interface ApiPersonPerson extends Struct.CollectionTypeSchema {
   attributes: {
     fullName: Schema.Attribute.String;
     role: Schema.Attribute.String;
-    external_links: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::external-link.external-link'
-    >;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    links: Schema.Attribute.Component<'shared.link', true>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

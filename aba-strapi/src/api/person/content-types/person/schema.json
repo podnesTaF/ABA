@@ -18,20 +18,21 @@
     "role": {
       "type": "string"
     },
-    "external_links": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::external-link.external-link"
-    },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
     }
   }
 }
