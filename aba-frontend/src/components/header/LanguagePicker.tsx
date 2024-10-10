@@ -6,7 +6,7 @@ import {Command, CommandGroup, CommandItem, CommandList} from "@/components/ui/c
 import {CheckIcon} from "lucide-react";
 import {cn} from "@/lib/utils";
 
-const LanguagePicker = ({variant}: {variant?: "dark" | 'light'}) => {
+const LanguagePicker = ({variant = 'dark'}: {variant: "dark" | 'light'}) => {
 	const [open, setOpen] = useState(false)
 	const [value, setValue] = React.useState("")
 

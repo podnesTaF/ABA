@@ -6,9 +6,10 @@ import Providers from "@/lib/providers/Providers";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import {prefetchQueries, prefetchQuery} from "@/lib/utils/queryHelpers";
-import {getHeader} from "@/api/layoutApi";
+import {getFooter, getHeader} from "@/api/layoutApi";
 import {dehydrate, HydrationBoundary} from "@tanstack/react-query";
 import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
 
 const helvetica = localFont({
   src: "./fonts/Helvetica.ttf",
@@ -31,7 +32,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const queryClient = await prefetchQueries([{key: ['header'], fetchFn:getHeader}]);
+  const queryClient = await prefetchQueries([{key: ['header'], fetchFn:getHeader}, {key: ['footer'], fetchFn: getFooter}]);
 
 
   return (
@@ -43,6 +44,7 @@ export default async function RootLayout({
         <HydrationBoundary state={dehydrate(queryClient)}>
           <Header />
           {children}
+          <Footer />
         </HydrationBoundary>
       </Providers>
       </body>

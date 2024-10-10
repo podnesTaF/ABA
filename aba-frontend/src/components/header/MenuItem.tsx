@@ -18,7 +18,7 @@ const MenuItem = ({link, last}: {link: PrimaryLink, last: boolean}) => {
 				</Button>}
 			</div>
 			{!single && (
-				<div className={`${isExpanded ? 'h-auto' : "h-0"} transition-all duration-200 overflow-hidden`}>
+				<div className={`transition-all overflow-hidden ${isExpanded ? 'h-auto' : "h-0"}`}>
 					<div
 						className={`px-[10%] py-4 flex flex-col gap-3`}>
 						{link.secondaryLinks.map((l) => (
