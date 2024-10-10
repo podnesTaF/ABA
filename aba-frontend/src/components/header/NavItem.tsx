@@ -3,13 +3,12 @@
 import React, {useState} from 'react';
 import {PrimaryLink} from "@/models/shared/link";
 import {
-	NavigationMenuContent, NavigationMenuIndicator,
+	NavigationMenuContent,
 	NavigationMenuItem, NavigationMenuLink,
 	NavigationMenuTrigger,
 	navigationMenuTriggerStyle, NavigationMenuViewport
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
-import {View} from "lucide-react";
 import {cn} from "@/lib/utils";
 
 interface NavItemProps {
@@ -29,11 +28,12 @@ const NavItem = ({link, isActive}: NavItemProps) => {
 			) : (
 				<div className={'relative'} onMouseEnter={() => setActive(true)} onMouseLeave={() => setActive(false)}>
 					<NavigationMenuTrigger className={"py-0 px-5 text-white text-base font-semibold capitalize"}>
-						{link.title}
-						<div
-							className={"absolute bottom-0 right-0 h-2 w-2 bg-white transition-all duration-100 group-data-[state=open]:bg-gray-200 triangle"}>
-
-						</div>
+						<Link href={link.link}>
+							{link.title}
+							<div
+								className={"absolute bottom-0 right-0 h-2 w-2 bg-white transition-all duration-100 group-data-[state=open]:bg-gray-200 triangle"}>
+							</div>
+						</Link>
 					</NavigationMenuTrigger>
 					<NavigationMenuContent>
 						<ul className={"w-64 xl:w-72"}>

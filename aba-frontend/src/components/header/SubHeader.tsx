@@ -12,7 +12,7 @@ const SubHeader = ({data}: {data: HeaderData}) => {
 					<Image src={getImageUrl(link.icon.url)} alt={link.name} height={30} width={30} />
 				</a>
 			))}
-			<LanguagePicker />
+			<LanguagePicker variant={'dark'} />
 		</div>
 	);
 };

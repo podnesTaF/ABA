@@ -35,13 +35,13 @@ const Header = () => {
 	if(!data) return null
 
 	return (
-		<div className={`z-20`}>
+		<div className={`z-20 ${isSticky ? 'md:sticky md:-top-12' : 'md:relative'}`}>
 			<SubHeader data={data}/>
 			<div
-				className={`hidden md:flex bg-[url('/placeholders/parallelogram.svg')] bg-no-repeat bg-cover absolute top-0 left-0 h-[108px] w-[255px] z-10 items-center pl-5 transition-all duration-200 ${isSticky ? '-translate-y-full' : 'translate-y-0'}`}>
+				className={`hidden md:flex bg-[url('/placeholders/parallelogram.svg')] bg-no-repeat bg-cover absolute top-0 left-0 h-[108px] w-[255px] z-30 items-center pl-5 transition-all duration-200 ${isSticky ? '-translate-y-full' : 'translate-y-0'}`}>
 				<Image src={getImageUrl(data.largeLogo.url)} alt={'logo'} width={180} height={80} className={'h-20 w-auto'}/>
 			</div>
-			<div className={`bg-primary pl-8 z-[5] lg:px-8 lg:py-2 h-[60px] flex justify-between items-center gap-8 w-full fixed ${isSticky ? 'md:fixed md:top-0' : 'md:relative'} transition-all duration-300`}>
+			<div className={`bg-primary pl-8 z-20 lg:px-8 lg:py-2 h-[60px] flex justify-between items-center gap-8 w-full fixed md:relative transition-all duration-300`}>
 				<Image src={getImageUrl(data?.smallLogo.url)} alt={data?.smallLogo.name || 'logo'} width={100} height={30}
 							 className={`h-8 w-auto opacity-100 ${isSticky ? 'md:opacity-100' : 'md:opacity-0'}   transition-opacity duration-300`}/>
 				<NavigationMenu className={"bg-primary hidden lg:block"}>
