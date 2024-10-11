@@ -981,6 +981,40 @@ export interface ApiPersonPerson extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiRaceRace extends Struct.CollectionTypeSchema {
+  collectionName: 'races';
+  info: {
+    singularName: 'race';
+    pluralName: 'races';
+    displayName: 'Race';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    slug: Schema.Attribute.String;
+    hero: Schema.Attribute.Component<'shared.hero', false>;
+    rules: Schema.Attribute.Component<'shared.base-info-section', false>;
+    categoryPreview: Schema.Attribute.Component<
+      'shared.base-info-section',
+      false
+    >;
+    categories: Schema.Attribute.Component<'shared.base-info-section', true>;
+    ranking: Schema.Attribute.Component<'shared.base-info-section', false>;
+    sequence: Schema.Attribute.Integer;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::race.race'>;
+  };
+}
+
 export interface ApiRacePageRacePage extends Struct.SingleTypeSchema {
   collectionName: 'race_pages';
   info: {
@@ -1021,13 +1055,14 @@ export interface ApiRacesPageRacesPage extends Struct.SingleTypeSchema {
     singularName: 'races-page';
     pluralName: 'races-pages';
     displayName: 'RacesPage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Schema.Attribute.String;
-    links: Schema.Attribute.Component<'shared.link', true>;
+    races: Schema.Attribute.Relation<'oneToMany', 'api::race.race'>;
+    hero: Schema.Attribute.Component<'shared.hero', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1487,6 +1522,7 @@ declare module '@strapi/strapi' {
       'api::news-category.news-category': ApiNewsCategoryNewsCategory;
       'api::news-page.news-page': ApiNewsPageNewsPage;
       'api::person.person': ApiPersonPerson;
+      'api::race.race': ApiRaceRace;
       'api::race-page.race-page': ApiRacePageRacePage;
       'api::races-page.races-page': ApiRacesPageRacesPage;
       'api::region.region': ApiRegionRegion;
