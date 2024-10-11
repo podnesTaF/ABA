@@ -4,6 +4,7 @@ import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
+import {ParseContent} from "@/components/shared/Hero";
 
 const AboutAb = ({content}: {content: AboutAB}) => {
 	return (
@@ -18,8 +19,7 @@ const AboutAb = ({content}: {content: AboutAB}) => {
 							<h2 className={'text-xl md:text-2xl xl:text-5xl font-bold'}>
 								{content.title}
 							</h2>
-							<p className={'text-lg md:text-xl xl:text-2xl'} dangerouslySetInnerHTML={{__html: content.description}}>
-							</p>
+							<ParseContent text={content.description} secondaryTitleClassName={'text-lg md:text-xl xl:text-2xl'} />
 						</div>
 						<div>
 							<Button className={'text-white bg-secondary hover:bg-secondary/80 rounded-full'}>
@@ -40,9 +40,7 @@ const AboutAb = ({content}: {content: AboutAB}) => {
 						<div key={value.id} className={"flex flex-col gap-3 w-full sm:w-1/2 md:w-1/4"}>
 							<h4 className={'text-white text-xl font-bold italic'}>{value.title}</h4>
 							<div className={'w-1/2 h-1 rounded-2xl bg-white'}></div>
-							<p className={'text-white text-base font-bold'} dangerouslySetInnerHTML={{__html: value.description}}>
-
-							</p>
+							<ParseContent text={value.description} secondaryTitleClassName={'text-white text-base font-bold'} />
 						</div>
 					))}
 				</div>

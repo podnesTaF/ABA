@@ -22,6 +22,7 @@ export type Media = {
 	height: number;
 	formats?: {
 		thumbnail?: MediaFormat;
+		large?: MediaFormat;
 	};
 	hash: string;
 	ext: string;

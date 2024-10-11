@@ -4,10 +4,9 @@ import {getNewsPreviews} from "@/api/newsApi";
 import {dehydrate, HydrationBoundary} from "@tanstack/react-query";
 import HomeHero from "@/components/home/HomeHero";
 import {HomePageData} from "@/models/pages/home";
-import {Article, ArticleResponse} from "@/models/shared/article";
+import { ArticleResponse} from "@/models/shared/article";
 import AboutAb from "@/components/home/AboutAB";
 import RecentNews from "@/components/home/RecentNews";
-import newsPreview from "@/components/shared/NewsPreview";
 import AboutAbaSections from "@/components/home/AboutAbaSections";
 import {FederationResponse} from "@/models/shared/federation";
 import {getFederations} from "@/api/federationApi";
@@ -30,7 +29,7 @@ export default async function Home() {
 			<AboutAb content={content.aboutAB}/>
 			<RecentNews layout={content.recentNews} news={newsPreviews.data} />
 			<AboutAbaSections content={content.aboutABA} />
-			<Federations content={content.federations} federations={federations.data} />
+			<Federations  content={content.federations} federations={federations.data} />
 		</HydrationBoundary>
 	)
 }

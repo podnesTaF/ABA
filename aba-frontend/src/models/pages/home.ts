@@ -18,7 +18,7 @@ export interface HomePageData {
 	locale: string | null;
 	hero: HomeHero;
 	aboutAB: AboutAB;
-	federations: Federation[];
+	federations: FederationsHome;
 	recentNews: RecentNews;
 	aboutABA: AboutABA[];
 }
