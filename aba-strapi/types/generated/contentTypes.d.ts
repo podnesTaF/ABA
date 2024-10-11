@@ -506,6 +506,7 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     structure: Schema.Attribute.Component<'about.structure', false>;
     legal: Schema.Attribute.Component<'shared.document-section', false>;
     hero: Schema.Attribute.Component<'shared.hero', false>;
+    contact: Schema.Attribute.Component<'shared.form', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -592,6 +593,7 @@ export interface ApiContactRequestContactRequest
     singularName: 'contact-request';
     pluralName: 'contact-requests';
     displayName: 'ContactRequest';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -599,15 +601,12 @@ export interface ApiContactRequestContactRequest
   attributes: {
     fullName: Schema.Attribute.String & Schema.Attribute.Required;
     email: Schema.Attribute.Email & Schema.Attribute.Required;
-    subject: Schema.Attribute.Enumeration<
-      ['events', 'partnership', 'support']
-    > &
-      Schema.Attribute.Required;
     message: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 10;
       }>;
+    subject: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

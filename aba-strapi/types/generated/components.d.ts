@@ -1,136 +1,5 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
-export interface SharedPrimaryLink extends Struct.ComponentSchema {
-  collectionName: 'components_shared_primary_links';
-  info: {
-    displayName: 'PrimaryLink';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    link: Schema.Attribute.String;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    secondaryLinks: Schema.Attribute.Component<'shared.link', true>;
-  };
-}
-
-export interface SharedLocation extends Struct.ComponentSchema {
-  collectionName: 'components_shared_locations';
-  info: {
-    displayName: 'location';
-    description: '';
-  };
-  attributes: {
-    address: Schema.Attribute.String;
-    city: Schema.Attribute.String;
-    zipCode: Schema.Attribute.String;
-    region: Schema.Attribute.Relation<'oneToOne', 'api::region.region'>;
-  };
-}
-
-export interface SharedLink extends Struct.ComponentSchema {
-  collectionName: 'components_shared_links';
-  info: {
-    displayName: 'link';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    link: Schema.Attribute.String;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-  };
-}
-
-export interface SharedHero extends Struct.ComponentSchema {
-  collectionName: 'components_shared_heroes';
-  info: {
-    displayName: 'Hero';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    backgroundImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    links: Schema.Attribute.Component<'shared.link', true>;
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
-  };
-}
-
-export interface SharedFooter extends Struct.ComponentSchema {
-  collectionName: 'components_shared_footers';
-  info: {
-    displayName: 'Footer';
-  };
-  attributes: {
-    socialMedias: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::external-link.external-link'
-    >;
-    contentDetails: Schema.Attribute.Component<
-      'shared.base-info-section',
-      true
-    >;
-    links: Schema.Attribute.Component<'cta.cta-text', true>;
-    copyright: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-  };
-}
-
-export interface SharedDocumentSection extends Struct.ComponentSchema {
-  collectionName: 'components_shared_document_sections';
-  info: {
-    displayName: 'Document Section';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    documents: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-  };
-}
-
-export interface SharedBaseInfoSection extends Struct.ComponentSchema {
-  collectionName: 'components_shared_base_info_sections';
-  info: {
-    displayName: 'baseInfoSection';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    ctaButton: Schema.Attribute.Component<'cta.cta-text', false>;
-    externalLinks: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::external-link.external-link'
-    >;
-  };
-}
-
 export interface TournamentsOverview extends Struct.ComponentSchema {
   collectionName: 'components_tournaments_overviews';
   info: {
@@ -249,6 +118,171 @@ export interface HomeAboutAb extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTextField extends Struct.ComponentSchema {
+  collectionName: 'components_shared_text_fields';
+  info: {
+    displayName: 'text field';
+    description: '';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    placeholder: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['email', 'password', 'text', 'number']>;
+    multiline: Schema.Attribute.Boolean;
+    name: Schema.Attribute.String;
+  };
+}
+
+export interface SharedPrimaryLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_primary_links';
+  info: {
+    displayName: 'PrimaryLink';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    secondaryLinks: Schema.Attribute.Component<'shared.link', true>;
+  };
+}
+
+export interface SharedLocation extends Struct.ComponentSchema {
+  collectionName: 'components_shared_locations';
+  info: {
+    displayName: 'location';
+    description: '';
+  };
+  attributes: {
+    address: Schema.Attribute.String;
+    city: Schema.Attribute.String;
+    zipCode: Schema.Attribute.String;
+    region: Schema.Attribute.Relation<'oneToOne', 'api::region.region'>;
+  };
+}
+
+export interface SharedLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_links';
+  info: {
+    displayName: 'link';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface SharedHero extends Struct.ComponentSchema {
+  collectionName: 'components_shared_heroes';
+  info: {
+    displayName: 'Hero';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    backgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    links: Schema.Attribute.Component<'shared.link', true>;
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+  };
+}
+
+export interface SharedForm extends Struct.ComponentSchema {
+  collectionName: 'components_shared_forms';
+  info: {
+    displayName: 'form';
+  };
+  attributes: {
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    fields: Schema.Attribute.Component<'shared.text-field', true>;
+    submitBtn: Schema.Attribute.Component<'cta.cta-text', false>;
+    sideMedia: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface SharedFooter extends Struct.ComponentSchema {
+  collectionName: 'components_shared_footers';
+  info: {
+    displayName: 'Footer';
+  };
+  attributes: {
+    socialMedias: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::external-link.external-link'
+    >;
+    contentDetails: Schema.Attribute.Component<
+      'shared.base-info-section',
+      true
+    >;
+    links: Schema.Attribute.Component<'cta.cta-text', true>;
+    copyright: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+  };
+}
+
+export interface SharedDocumentSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_document_sections';
+  info: {
+    displayName: 'Document Section';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    documents: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+  };
+}
+
+export interface SharedBaseInfoSection extends Struct.ComponentSchema {
+  collectionName: 'components_shared_base_info_sections';
+  info: {
+    displayName: 'baseInfoSection';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    ctaButton: Schema.Attribute.Component<'cta.cta-text', false>;
+    externalLinks: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::external-link.external-link'
+    >;
+  };
+}
+
 export interface FedirationsStructure extends Struct.ComponentSchema {
   collectionName: 'components_fedirations_structures';
   info: {
@@ -263,18 +297,6 @@ export interface FedirationsStructure extends Struct.ComponentSchema {
         }
       >;
     people: Schema.Attribute.Relation<'oneToMany', 'api::person.person'>;
-  };
-}
-
-export interface CtaCtaText extends Struct.ComponentSchema {
-  collectionName: 'components_cta_cta_texts';
-  info: {
-    displayName: 'CTA Button';
-    description: '';
-  };
-  attributes: {
-    link: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -301,6 +323,18 @@ export interface ContentBlockImageBlock extends Struct.ComponentSchema {
   };
   attributes: {
     Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface CtaCtaText extends Struct.ComponentSchema {
+  collectionName: 'components_cta_cta_texts';
+  info: {
+    displayName: 'CTA Button';
+    description: '';
+  };
+  attributes: {
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -338,23 +372,25 @@ export interface AboutStructure extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.primary-link': SharedPrimaryLink;
-      'shared.location': SharedLocation;
-      'shared.link': SharedLink;
-      'shared.hero': SharedHero;
-      'shared.footer': SharedFooter;
-      'shared.document-section': SharedDocumentSection;
-      'shared.base-info-section': SharedBaseInfoSection;
       'tournaments.overview': TournamentsOverview;
       'home.home-page': HomeHomePage;
       'home.home-news': HomeHomeNews;
       'home.federations': HomeFederations;
       'home.about2': HomeAbout2;
       'home.about-ab': HomeAboutAb;
+      'shared.text-field': SharedTextField;
+      'shared.primary-link': SharedPrimaryLink;
+      'shared.location': SharedLocation;
+      'shared.link': SharedLink;
+      'shared.hero': SharedHero;
+      'shared.form': SharedForm;
+      'shared.footer': SharedFooter;
+      'shared.document-section': SharedDocumentSection;
+      'shared.base-info-section': SharedBaseInfoSection;
       'fedirations.structure': FedirationsStructure;
-      'cta.cta-text': CtaCtaText;
       'content-block.text': ContentBlockText;
       'content-block.image-block': ContentBlockImageBlock;
+      'cta.cta-text': CtaCtaText;
       'about.values': AboutValues;
       'about.structure': AboutStructure;
     }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "contact-request",
     "pluralName": "contact-requests",
-    "displayName": "ContactRequest"
+    "displayName": "ContactRequest",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,19 +20,13 @@
       "type": "email",
       "required": true
     },
-    "subject": {
-      "type": "enumeration",
-      "enum": [
-        "events",
-        "partnership",
-        "support"
-      ],
-      "required": true
-    },
     "message": {
       "type": "text",
       "required": true,
       "minLength": 10
+    },
+    "subject": {
+      "type": "string"
     }
   }
 }
