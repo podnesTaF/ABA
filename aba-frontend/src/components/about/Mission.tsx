@@ -6,7 +6,7 @@ import {ParseContent} from "@/components/shared/Hero";
 
 const Mission = ({content}: {content: InfoSection[]}) => {
 	return (
-		<div className={'py-8 rounded-3xl w-full bg-white -mt-10 relative z-10'}>
+		<div id={'mission-values'} className={'py-8 rounded-3xl w-full bg-white -mt-10 relative z-10'}>
 			<div className={'px-3 mx-auto max-w-7xl'}>
 				<h2 className={'font-bold text-3xl'}>
 					{content[0]?.title || content[1]?.title}

@@ -12,7 +12,7 @@ export type Link = {
     id: number;
     title: string;
     link: string;
-    icon: string | null;
+    icon: Media;
 };
 
 export interface ExternalLink {

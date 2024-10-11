@@ -4,6 +4,7 @@ import {CoreValue} from "@/models/shared/coreValue";
 import {Media} from "@/models/shared/media";
 import {Person} from "@/models/shared/person";
 import {Meta} from "@/models/shared/meta";
+import {Form} from "@/models/shared/form";
 
 export type AboutResponse = {
 	data: AboutPage,
@@ -21,11 +22,12 @@ export type AboutPage = {
 		locale: string | null;
 		hero: Hero;
 		missions: InfoSection[];
-		values: CoreValue[];
+		values: SectionValues;
 		differences: InfoSection;
 		history: InfoSection;
 		structure: Structure;
 		legal: Legal;
+		contact: Form
 };
 
 
@@ -41,3 +43,9 @@ export type Structure = {
 	title: string;
 	people: Person[];
 };
+
+export type SectionValues = {
+	id: number;
+	title: string;
+	coreValues: CoreValue[]
+}

@@ -36,7 +36,7 @@ const Hero = ({content}: {content: HeroType}) => {
 export const ParseContent = ({ text, mainTitleClassName, secondaryTitleClassName}: {text: string, mainTitleClassName?:string, secondaryTitleClassName?: string}) => {
 	const options: HTMLReactParserOptions  = {
 		replace: (domNode: any) => {
-			if (domNode.type === 'tag' && domNode.name === 'h1') {
+			if (domNode.type === 'tag' && domNode.name.includes('h')) {
 				return (
 					<h1 className={mainTitleClassName}>
 						{domToReact(domNode.children)}

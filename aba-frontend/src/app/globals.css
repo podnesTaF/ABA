@@ -24,7 +24,7 @@ body {
     --primary-foreground: 0 0% 100%;
     --secondary: 3 68% 48%;
     --secondary-foreground: 0 0% 99%;
-    --muted: 240 4.8% 95.9%;
+    --muted: 0 0% 97%;
     --muted-foreground: 240 3.8% 46.1%;
     --accent: 240 4.8% 95.9%;
     --accent-foreground: 240 5.9% 10%;
@@ -71,6 +71,9 @@ body {
 @layer base {
   * {
     @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;

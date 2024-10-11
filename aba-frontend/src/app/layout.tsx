@@ -3,13 +3,12 @@ import localFont from "next/font/local";
 import "./globals.css";
 import React from "react";
 import Providers from "@/lib/providers/Providers";
-import Link from "next/link";
-import {Button} from "@/components/ui/button";
 import {prefetchQueries, prefetchQuery} from "@/lib/utils/queryHelpers";
 import {getFooter, getHeader} from "@/api/layoutApi";
 import {dehydrate, HydrationBoundary} from "@tanstack/react-query";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
+import { Toaster } from "@/components/ui/sonner"
 
 const helvetica = localFont({
   src: "./fonts/Helvetica.ttf",
@@ -45,6 +44,7 @@ export default async function RootLayout({
           <Header />
           {children}
           <Footer />
+          <Toaster />
         </HydrationBoundary>
       </Providers>
       </body>

@@ -5,6 +5,7 @@ import {getFooter} from "@/api/layoutApi";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import Link from "next/link";
+import {ParseContent} from "@/components/shared/Hero";
 
 const Footer = () => {
 	const {data} = useQuery({
@@ -21,7 +22,7 @@ const Footer = () => {
 							<div key={info.id}>
 								<h5 className={'uppercase text-xl mb-3 font-bold'}>{info.title}</h5>
 								{info.description ? (
-									<p className={'text-white'} dangerouslySetInnerHTML={{__html: info.description}}></p>
+									<ParseContent text={info.description} secondaryTitleClassName={'text-white'} />
 								) : (
 									<div className={'flex items-center gap-3'}>
 										{info.externalLinks.map(l => (
@@ -44,9 +45,8 @@ const Footer = () => {
 								</div>
 							))}
 						</div>
-						{data?.copyright && <p dangerouslySetInnerHTML={{__html: data?.copyright}}>
-
-						</p>}
+						{data?.copyright && <div dangerouslySetInnerHTML={{__html: data?.copyright}}>
+						</div>}
 					</div>
 				</div>
 			</div>

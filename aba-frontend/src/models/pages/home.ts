@@ -1,7 +1,8 @@
 import {Media} from "@/models/shared/media";
 import {CTAButton} from "@/models/shared/cta";
 import {CoreValue} from "@/models/shared/coreValue";
-import {Federations} from "@/models/shared/federation";
+import type {Federation} from "@/models/shared/federation";
+import { z } from "zod";
 
 export interface RequestHomePageData {
 	data: HomePageData;
@@ -17,7 +18,7 @@ export interface HomePageData {
 	locale: string | null;
 	hero: HomeHero;
 	aboutAB: AboutAB;
-	federations: Federations;
+	federations: Federation[];
 	recentNews: RecentNews;
 	aboutABA: AboutABA[];
 }
@@ -61,3 +62,13 @@ export interface FederationsHome {
 	associationMedia: Media;
 	ctaButton: CTAButton
 }
+
+
+export const contactSchema = z.object({
+	email: z.string().email("Invalid email address"),
+	fullName: z.string().min(1, "Full Name is required"),
+	subject: z.string().min(1, "Subject is required"),
+	message: z.string().min(10, "Write at least 10 symbols in your message"),
+});
+
+export type ContactSchema = z.infer<typeof contactSchema>;

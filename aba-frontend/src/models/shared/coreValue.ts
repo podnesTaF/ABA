@@ -1,3 +1,5 @@
+import {Media} from "@/models/shared/media";
+
 export interface CoreValue {
 	id: number;
 	documentId: string;
@@ -7,4 +9,5 @@ export interface CoreValue {
 	updatedAt: string;
 	publishedAt: string;
 	locale: string | null;
+	icon: Media
 }
