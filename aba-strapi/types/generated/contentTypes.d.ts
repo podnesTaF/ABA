@@ -1103,6 +1103,37 @@ export interface ApiRegionRegion extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTournamentTournament extends Struct.CollectionTypeSchema {
+  collectionName: 'tournaments';
+  info: {
+    singularName: 'tournament';
+    pluralName: 'tournaments';
+    displayName: 'Tournament';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    about: Schema.Attribute.Component<'shared.base-info-section', false>;
+    features: Schema.Attribute.Component<'shared.link-section', false>;
+    purpose: Schema.Attribute.Component<'shared.link-section', false>;
+    slug: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tournament.tournament'
+    >;
+  };
+}
+
 export interface ApiTournamentsPageTournamentsPage
   extends Struct.SingleTypeSchema {
   collectionName: 'tournaments_pages';
@@ -1118,6 +1149,10 @@ export interface ApiTournamentsPageTournamentsPage
   attributes: {
     hero: Schema.Attribute.Component<'shared.hero', false>;
     news: Schema.Attribute.Component<'home.home-news', false>;
+    tournaments: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tournament.tournament'
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1526,6 +1561,7 @@ declare module '@strapi/strapi' {
       'api::race-page.race-page': ApiRacePageRacePage;
       'api::races-page.races-page': ApiRacesPageRacesPage;
       'api::region.region': ApiRegionRegion;
+      'api::tournament.tournament': ApiTournamentTournament;
       'api::tournaments-page.tournaments-page': ApiTournamentsPageTournamentsPage;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
