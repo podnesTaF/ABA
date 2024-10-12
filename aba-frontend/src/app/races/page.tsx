@@ -41,7 +41,7 @@ const Page = () => {
 			<div className={'max-w-7xl mx-auto px-4 z-10 relative'}>
 				<ParseContent text={data.data.hero.title} mainTitleClassName={"text-2xl md:text-4xl xl:text-7xl font-bold text-white"} />
 				{data.data.races.sort((a,b) => a.sequence - b.sequence).map(r => (
-					<Link href={`/races/${r.slug}`}>
+					<Link href={`/races/${r.slug}`} key={r.id}>
 						<div key={r.id}
 								 onMouseEnter={() => handleMouseEnter(getImageUrl(r.hero.backgroundImage.formats?.large?.url))}
 								 className={'flex cursor-pointer hover:bg-primary/50 transition-all duration-200 w-full border-b border-b-secondary py-2 md:py-5 items-center justify-between gap-5'}>

@@ -13,7 +13,14 @@ export type Link = {
     title: string;
     link: string;
     icon: Media;
+    description?: string
 };
+
+export type LinkSection = {
+    id: number;
+    title: string;
+    links: Link[]
+}
 
 export interface ExternalLink {
     id: number;

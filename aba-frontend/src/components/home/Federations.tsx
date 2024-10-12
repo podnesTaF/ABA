@@ -6,6 +6,7 @@ import Link from "next/link";
 import FederationCard from "@/components/shared/FederationCard";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
+import {ParseContent} from "@/components/shared/Hero";
 
 const Federations = ({content, federations}: {content: FederationsHome, federations: Federation[]}) => {
 	return (
@@ -29,7 +30,7 @@ const Federations = ({content, federations}: {content: FederationsHome, federati
 					</div>
 					<div className={'bg-primary flex-1 h-auto p-5 rounded-3xl flex flex-col items-center justify-center gap-5'}>
 						<Image  src={getImageUrl(content.associationMedia.url)} alt={content.associationMedia.name} width={300} height={110} className={'object-contain object-center'} />
-						<p className={"text-white"} dangerouslySetInnerHTML={{__html: content.associationDescription}}></p>
+						<ParseContent text={content.associationDescription} secondaryTitleClassName={'text-white'} />
 						<Button className={'bg-white rounded-full text-secondary '}>
 							<Link href={content.ctaButton.link} className={'text-secondary'}>
 								{content.ctaButton.title}

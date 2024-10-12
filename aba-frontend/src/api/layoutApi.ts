@@ -2,6 +2,7 @@ import api from "@/api/apiInstance";
 import {createMediaBriefQuery} from "@/lib/utils/queryHelpers";
 import {HeaderData} from "@/models/layout/header";
 import {Footer, FooterResponse} from "@/models/layout/footer";
+
 export type HeaderResponse = {
     data: HeaderData;
     meta: Record<string, unknown>;

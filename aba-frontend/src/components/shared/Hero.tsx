@@ -34,20 +34,23 @@ const Hero = ({content}: {content: HeroType}) => {
 };
 
 export const ParseContent = ({ text, mainTitleClassName, secondaryTitleClassName}: {text: string, mainTitleClassName?:string, secondaryTitleClassName?: string}) => {
-	const options: HTMLReactParserOptions  = {
+	const options: HTMLReactParserOptions = {
 		replace: (domNode: any) => {
-			if (domNode.type === 'tag' && domNode.name.includes('h')) {
+			if (domNode.type === 'tag') {
+				if (domNode.name.match(/^h[1-6]$/)) {
+					const Tag = domNode.name as keyof JSX.IntrinsicElements;
+					return (
+						<Tag className={mainTitleClassName}>
+							{domToReact(domNode.children)}
+						</Tag>
+					);
+				}
+				const Tag = domNode.name as keyof JSX.IntrinsicElements;
 				return (
-					<h1 className={mainTitleClassName}>
+					<Tag className={secondaryTitleClassName}>
 						{domToReact(domNode.children)}
-					</h1>
+					</Tag>
 				);
-			} else {
-				return (
-					<p className={secondaryTitleClassName}>
-						{domToReact(domNode.children)}
-					</p>
-				)
 			}
 		},
 	};

@@ -5,6 +5,7 @@ import Link from "next/link";
 import {Media} from "@/models/shared/media";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
+import {ParseContent} from "@/components/shared/Hero";
 
 const AboutAbaSections = ({content}: {content: AboutABA[]}) => {
 	return (
@@ -41,7 +42,7 @@ const ContentSection = ({content, textAlign}: { content: AboutABA, textAlign: 't
 			<h2 className={`font-bold uppercase text-lg md:text-xl lg:text-2xl xl:text-3xl text-right ${textAlign === "text-right" ? "md:text-right" : "md:text-left"}`}>
 				{content.title}
 			</h2>
-			<p className={`text-right ${ "md:" +textAlign}`} dangerouslySetInnerHTML={{__html: content.description}}></p>
+			<ParseContent text={content.description} secondaryTitleClassName={`text-right ${ "md:" +textAlign}`} />
 			<div>
 				<Button className={'text-white bg-secondary hover:bg-secondary/80 rounded-full capitalize'}>
 					<Link href={content.ctaButton.link}>

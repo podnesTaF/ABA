@@ -95,3 +95,23 @@ body {
 .h-header-screen {
   height: calc(100vh - 60px);
 }
+
+ul.ulist-base {
+  @apply list-disc pl-4; /* Default for top-level ul */
+}
+ul ul.ulist-base {
+  list-style-type: circle;
+  padding-left: 20px;
+}
+li.listitem-base {
+  @apply mb-2; /* Add some margin between list items */
+}
+
+.olist-base{
+  @apply list-decimal pl-4; /* Apply default ordered list styles */
+}
+
+ol ol .olist-base {
+  list-style-type: lower-alpha;
+  padding-left: 20px;
+}
