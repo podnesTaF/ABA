@@ -18,6 +18,8 @@ export type TournamentsPage = {
 export type Tournament = {
 	id: number;
 	documentId: string;
+	title: string;
+	description: string
 	createdAt: string;
 	updatedAt: string;
 	publishedAt: string;
