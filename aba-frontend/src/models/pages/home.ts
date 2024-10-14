@@ -44,7 +44,8 @@ export interface AboutAB {
 export interface RecentNews {
 	id: number;
 	sectionTitle: string;
-	media: Media
+	media: Media,
+	ctaButton: CTAButton
 }
 
 export interface AboutABA {

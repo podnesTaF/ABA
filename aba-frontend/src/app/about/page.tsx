@@ -15,12 +15,15 @@ import {Person} from "@/models/shared/person";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import Image from "next/image";
 import Link from "next/link";
+import {ArticleResponse} from "@/models/shared/article";
 
 const AboutPage = () => {
 	const {data} = useQuery({
 		queryKey: ['about'],
 		queryFn: getAboutPage
 	})
+
+
 	const [activePerson, setActivePerson] = useState<Person | undefined>(data?.structure.people[0] || undefined)
 
 	if(!data) return null

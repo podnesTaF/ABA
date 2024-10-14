@@ -16,7 +16,7 @@ const RecentNews = ({layout, news}: {layout: RecentNews, news: Article[]}) => {
 					<ParseContent text={layout.sectionTitle} secondaryTitleClassName={'font-bold !text-white md:text-2xl'} mainTitleClassName={'font-bold !text-white text-2xl md:text-3xl xl:text-5xl'} />
 					<div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 xl:gap-12 justify-center'}>
 						{news?.map((article) => (
-							<NewsPreview preview={article} key={article.id}/>
+							<NewsPreview variant={'light'} preview={article} key={article.id}/>
 						))}
 					</div>
 					<Button className={'rounded-full bg-white text-secondary w-32'}>
