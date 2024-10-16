@@ -1,5 +1,5 @@
 import React from 'react';
-import {Article} from "@/models/shared/article";
+import {Article} from "@/models/pages/article";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import {Calendar} from "lucide-react";
@@ -12,7 +12,7 @@ const NewsPreview = ({preview, variant}: {preview: Article, variant: "light" | '
 				<Image src={getImageUrl(preview.previewImage.url)} alt={preview.previewImage.url} width={400} height={350} className={'w-full h-full object-cover hover:scale-105 transition-all duration-200'} />
 				<div className={'backdrop-blur-lg px-3 py-2 flex gap-4 items-center absolute bottom-0 left-0 w-full z-10 rounded-lg'}>
 					<Calendar className={'text-white w-4 h-4'} />
-					<p>{format(preview.createdAt, 'dd/MM/yyyy')}</p>
+					<p className={'text-white'}>{format(preview.createdAt, 'dd/MM/yyyy')}</p>
 				</div>
 			</div>
 			<div className={`py-4 flex flex-col`}>

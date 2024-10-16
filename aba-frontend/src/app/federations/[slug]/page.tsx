@@ -60,7 +60,7 @@ const FederationPage = ({params: {slug}}: { params: { slug: string } }) => {
 						</div>
 					</div>
 				</div>
-				<div className={'z-[5] sticky -translate-y-20 top-40 h-fit'}>
+				<div className={'z-[5] lg:sticky mt-5 lg:mt-0 lg:-translate-y-20 lg:top-40 h-fit'}>
 				<FederationInfoCard details={data.details} logo={data.logo}/>
 				</div>
 			</div>

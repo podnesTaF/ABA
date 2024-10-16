@@ -5,13 +5,16 @@ import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import parse, {domToReact, HTMLReactParserOptions} from 'html-react-parser';
 import Link from "next/link";
+import NewsGrid from "@/components/shared/NewsGrid";
 
 const Hero = ({content}: {content: HeroType}) => {
 
-	const withLinks = !!content.links.length
+	const withLinks = !!content.links?.length
+
+	const withArticles = !!content.articles?.length
 
 	return (
-		<div className={'w-full relative py-20 md:pt-[10%] pb-16'}>
+		<div className={`w-full relative ${withArticles ? "pt-10 pb-20" : "py-20 md:pt-[10%]" } pb-16`}>
 			<Image src={getImageUrl(content.backgroundImage.url)} alt={content.backgroundImage.name} width={1440} height={600} className={'w-full h-full object-cover object-center absolute left-0 top-0'} />
 			<div className={'absolute left-0 top-0 bottom-0 right-0 bg-primary/50'} />
 			<div className={'mx-auto max-w-7xl px-4 z-10 relative'}>
@@ -28,6 +31,10 @@ const Hero = ({content}: {content: HeroType}) => {
 						</div>
 					))}
             </div>}
+
+				<div className={'mt-6'}>
+					<NewsGrid news={content.articles} />
+				</div>
 			</div>
 		</div>
 	);
