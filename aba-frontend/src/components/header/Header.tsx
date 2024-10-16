@@ -9,6 +9,7 @@ import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import SubHeader from "@/components/header/SubHeader";
 import MobileNav from "@/components/header/MobileNav";
+import Link from "next/link";
 
 const Header = () => {
 	const [isSticky, setIsSticky] = useState(false);
@@ -39,7 +40,9 @@ const Header = () => {
 			<SubHeader data={data}/>
 			<div
 				className={`hidden md:flex bg-[url('/placeholders/parallelogram.svg')] bg-no-repeat bg-cover absolute top-0 left-0 h-[108px] w-[255px] z-30 items-center pl-5 transition-all duration-200 ${isSticky ? '-translate-y-full' : 'translate-y-0'}`}>
-				<Image src={getImageUrl(data.largeLogo.url)} alt={'logo'} width={180} height={80} className={'h-20 w-auto'}/>
+				<Link href={'/'}>
+					<Image src={getImageUrl(data.largeLogo.url)} alt={'logo'} width={180} height={80} className={'h-20 w-auto'}/>
+				</Link>
 			</div>
 			<div className={`bg-primary pl-8 z-20 lg:px-8 lg:py-2 h-[60px] flex justify-between items-center gap-8 w-full fixed md:relative transition-all duration-300`}>
 				<Image src={getImageUrl(data?.smallLogo.url)} alt={data?.smallLogo.name || 'logo'} width={100} height={30}

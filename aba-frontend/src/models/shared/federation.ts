@@ -23,6 +23,7 @@ export type Federation = {
 	name: string;
 	hero: Hero;
 	createdAt: string;
+	slug: string;
 	updatedAt: string;
 	publishedAt: string;
 	locale: string | null;
