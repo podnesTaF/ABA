@@ -15,12 +15,12 @@ const Hero = ({content}: {content: HeroType}) => {
 			<Image src={getImageUrl(content.backgroundImage.url)} alt={content.backgroundImage.name} width={1440} height={600} className={'w-full h-full object-cover object-center absolute left-0 top-0'} />
 			<div className={'absolute left-0 top-0 bottom-0 right-0 bg-primary/50'} />
 			<div className={'mx-auto max-w-7xl px-4 z-10 relative'}>
-				<ParseContent text={content.title} mainTitleClassName={'text-xl font-bold text-white sm:text-2xl md:text-3xl lg:text-4xl xl:text-6xl 2xl:text-7xl'} />
+				<ParseContent text={content.title} mainTitleClassName={'text-xl font-bold text-white sm:text-2xl md:text-3xl lg:text-4xl xl:text-6xl 2xl:text-7xl'} secondaryTitleClassName={"border-b-2 border-b-secondary w-fit font-bold text-lg text-white lg:text-2xl capitalize"} />
 				{withLinks &&
 						<div className={'flex flex-col md:flex-row gap-2'}>
 					{content.links.map((l, index) => (
 						<div key={l.id} className={`px-3 py-1 border-b-secondary ${index === 0 ? "border-b-2" : "border-b-0"} hover:opacity-90`}>
-							<Link href={l.link}>
+							<Link href={l.link || ''}>
 								<h4 className={`${index === 0 ? "text-secondary" : "text-white"} text-base font-semibold`}>
 									{l.title}
 								</h4>
