@@ -41,6 +41,7 @@ const Hero = ({content}: {content: HeroType}) => {
 };
 
 export const ParseContent = ({ text, mainTitleClassName, secondaryTitleClassName}: {text: string, mainTitleClassName?:string, secondaryTitleClassName?: string}) => {
+	if(!text) return ""
 	const options: HTMLReactParserOptions = {
 		replace: (domNode: any) => {
 			if (domNode.type === 'tag') {

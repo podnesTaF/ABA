@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Helvetica, sans-serif;
-}
 
 @layer utilities {
   .text-balance {
@@ -74,6 +71,8 @@ body {
   }
   html {
     scroll-behavior: smooth;
+    letter-spacing: 1px;
+    font-stretch: ultra-expanded;
   }
   body {
     @apply bg-background text-foreground overflow-x-hidden;

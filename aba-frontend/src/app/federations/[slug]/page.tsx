@@ -15,7 +15,7 @@ const FederationPage = ({params: {slug}}: { params: { slug: string } }) => {
 		queryFn: () => getFederation(slug)
 	})
 
-
+	console.log(data)
 	if (!data) return null
 
 	return (
@@ -27,7 +27,7 @@ const FederationPage = ({params: {slug}}: { params: { slug: string } }) => {
 				<div className={'py-12 max-w-5xl flex-1 flex flex-col gap-8'}>
 					<div className={'flex gap-6 flex-col'}>
 						{data.about.map((content) => (
-							<ParseContent text={content.Text} key={content.id} mainTitleClassName={'text-xl mt-5 mb-3'} secondaryTitleClassName={'ulist-base'}/>
+							<ParseContent text={content.text} key={content.id} mainTitleClassName={'text-xl mt-5 mb-3'} secondaryTitleClassName={'ulist-base'}/>
 						))}
 					</div>
 					{data.history.description && <div>

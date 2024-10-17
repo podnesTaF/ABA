@@ -16,7 +16,7 @@ const AboutAb = ({content}: {content: AboutAB}) => {
 							{content.sectionTitle}
 						</h3>
 						<div>
-							<h2 className={'text-xl md:text-2xl xl:text-5xl font-bold'}>
+							<h2 className={'text-xl md:text-2xl xl:text-5xl font-bold mb-4'}>
 								{content.title}
 							</h2>
 							<ParseContent text={content.description} secondaryTitleClassName={'text-lg md:text-xl xl:text-2xl'} />

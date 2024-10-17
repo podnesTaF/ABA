@@ -9,16 +9,22 @@ import {dehydrate, HydrationBoundary} from "@tanstack/react-query";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import { Toaster } from "@/components/ui/sonner"
+import Head from "next/head";
+import { Roboto_Mono } from 'next/font/google'
+
 
 const helvetica = localFont({
   src: "./fonts/Helvetica.ttf",
   variable: "--font-helvetica",
-  weight: "400 700",
+  weight: "400 500 600 700",
+  display: 'swap',
 });
+
 const montserrat = localFont({
   src: "./fonts/Montserrat-VariableFont_wght.ttf",
   variable: "--font-montserrat",
   weight: "400 500 600 700 800",
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -35,21 +41,22 @@ export default async function RootLayout({
 
 
   return (
-    <html lang="en">
-      <body
-        className={`${helvetica.variable} ${montserrat.variable} antialiased`}
-      >
-      <Providers>
-        <HydrationBoundary state={dehydrate(queryClient)}>
-          <Header />
-          <div className={'pt-[60px] md:pt-0'}>
-            {children}
-          </div>
-          <Footer />
-          <Toaster />
-        </HydrationBoundary>
-      </Providers>
-      </body>
+    <html lang="en"  className={`${helvetica.className}`}>
+
+    <body
+      className={`antialiased`}
+    >
+    <Providers>
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <Header/>
+        <div className={'pt-[60px] md:pt-0'}>
+          {children}
+        </div>
+        <Footer/>
+        <Toaster/>
+      </HydrationBoundary>
+    </Providers>
+    </body>
     </html>
   );
 }
