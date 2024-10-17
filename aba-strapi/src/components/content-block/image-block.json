@@ -1,19 +1,21 @@
 {
   "collectionName": "components_content_block_image_blocks",
   "info": {
-    "displayName": "Image Block"
+    "displayName": "Image Block",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Image": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

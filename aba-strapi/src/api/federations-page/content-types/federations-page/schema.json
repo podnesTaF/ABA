@@ -25,11 +25,6 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.base-info-section"
-    },
-    "federations": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::federation.federation"
     }
   }
 }

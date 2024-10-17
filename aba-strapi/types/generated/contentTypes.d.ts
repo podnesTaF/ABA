@@ -551,7 +551,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    ContentBlocks: Schema.Attribute.DynamicZone<
+    content: Schema.Attribute.DynamicZone<
       ['content-block.image-block', 'content-block.text']
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -571,6 +571,12 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::news-category.news-category'
     >;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -699,15 +705,21 @@ export interface ApiFederationFederation extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    location: Schema.Attribute.Component<'shared.location', false>;
+    hero: Schema.Attribute.Component<'shared.hero', false>;
+    about: Schema.Attribute.DynamicZone<
+      ['content-block.text', 'content-block.image-block']
+    >;
+    history: Schema.Attribute.Component<'shared.base-info-section', false>;
+    slug: Schema.Attribute.String;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    structure: Schema.Attribute.Component<'fedirations.structure', false>;
+    documentSection: Schema.Attribute.Component<
+      'shared.document-section',
+      false
+    >;
     name: Schema.Attribute.String;
-    flag: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    description: Schema.Attribute.DynamicZone<
-      ['content-block.text', 'content-block.image-block']
-    >;
-    history: Schema.Attribute.DynamicZone<
-      ['content-block.text', 'content-block.image-block']
-    >;
+    details: Schema.Attribute.Component<'shared.info-field', true>;
+    region: Schema.Attribute.Relation<'oneToOne', 'api::region.region'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -772,10 +784,6 @@ export interface ApiFederationsPageFederationsPage
     federationHead: Schema.Attribute.Component<
       'shared.base-info-section',
       false
-    >;
-    federations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::federation.federation'
     >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -933,7 +941,6 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
   };
   attributes: {
     hero: Schema.Attribute.Component<'shared.hero', false>;
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     categories: Schema.Attribute.Relation<
       'oneToMany',
       'api::news-category.news-category'

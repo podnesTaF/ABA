@@ -32,7 +32,7 @@
       },
       "type": "string"
     },
-    "ContentBlocks": {
+    "content": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -64,6 +64,14 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::news-category.news-category"
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

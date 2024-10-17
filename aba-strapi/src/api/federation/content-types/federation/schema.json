@@ -12,16 +12,27 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "location": {
-      "displayName": "location",
+    "hero": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.location"
+      "component": "shared.hero"
     },
-    "name": {
+    "about": {
+      "type": "dynamiczone",
+      "components": [
+        "content-block.text",
+        "content-block.image-block"
+      ]
+    },
+    "history": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.base-info-section"
+    },
+    "slug": {
       "type": "string"
     },
-    "flag": {
+    "logo": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -32,19 +43,28 @@
         "audios"
       ]
     },
-    "description": {
-      "type": "dynamiczone",
-      "components": [
-        "content-block.text",
-        "content-block.image-block"
-      ]
+    "structure": {
+      "type": "component",
+      "repeatable": false,
+      "component": "fedirations.structure"
     },
-    "history": {
-      "type": "dynamiczone",
-      "components": [
-        "content-block.text",
-        "content-block.image-block"
-      ]
+    "documentSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.document-section"
+    },
+    "name": {
+      "type": "string"
+    },
+    "details": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.info-field"
+    },
+    "region": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::region.region"
     }
   }
 }

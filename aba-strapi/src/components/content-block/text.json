@@ -1,11 +1,12 @@
 {
   "collectionName": "components_content_block_texts",
   "info": {
-    "displayName": "Text"
+    "displayName": "Text",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Text": {
+    "text": {
       "type": "customField",
       "options": {
         "preset": "default"

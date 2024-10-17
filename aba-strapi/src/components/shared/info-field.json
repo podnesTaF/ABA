@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_info_fields",
+  "info": {
+    "displayName": "InfoField"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

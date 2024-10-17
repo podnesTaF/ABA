@@ -17,11 +17,6 @@
       "repeatable": false,
       "component": "shared.hero"
     },
-    "articles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article"
-    },
     "categories": {
       "type": "relation",
       "relation": "oneToMany",
