@@ -42,7 +42,9 @@ export default async function RootLayout({
       <Providers>
         <HydrationBoundary state={dehydrate(queryClient)}>
           <Header />
-          {children}
+          <div className={'pt-[60px] md:pt-0'}>
+            {children}
+          </div>
           <Footer />
           <Toaster />
         </HydrationBoundary>

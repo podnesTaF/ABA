@@ -107,13 +107,10 @@ li.listitem-base {
   @apply mb-2; /* Add some margin between list items */
 }
 
-.olist-base{
-  @apply list-decimal pl-4; /* Apply default ordered list styles */
-}
 
-ol ol .olist-base {
-  list-style-type: lower-alpha;
-  padding-left: 20px;
+ol.olist-base {
+  list-style-type: decimal;
+  padding-left: 10px;
 }
 
 

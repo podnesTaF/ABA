@@ -15,7 +15,7 @@ export const getNewsPage = async (): Promise<TNewsPage> => {
 }
 
 export const getArticle = async (slug: string): Promise<Article> => {
-	const {data} = await api.get<{data: Article[]}>(`/articles?filters[slug][$eq]=${slug}&populate[previewImage][populate]=*&populate[newsCategories][populate]`)
+	const {data} = await api.get<{data: Article[]}>(`/articles?filters[slug][$eq]=${slug}&populate[previewImage][populate]=*&populate[newsCategories][populate]&populate[content][on][content-block.text]=&populate[content][on][content-block.image-block][populate][image][populate]=*`)
 
 	return data.data[0]
 }
