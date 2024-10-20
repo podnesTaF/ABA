@@ -31,8 +31,8 @@ const Federations = ({content, federations}: {content: FederationsHome, federati
 					<div className={'bg-primary flex-1 h-auto p-5 rounded-3xl flex flex-col items-center justify-center gap-5'}>
 						<Image  src={getImageUrl(content.associationMedia.url)} alt={content.associationMedia.name} width={300} height={110} className={'object-contain object-center'} />
 						<ParseContent text={content.associationDescription} secondaryTitleClassName={'text-white'} />
-						<Button className={'bg-white rounded-full text-secondary '}>
-							<Link href={content.ctaButton.link} className={'text-secondary'}>
+						<Button variant={'light'}>
+							<Link href={content.ctaButton.link} >
 								{content.ctaButton.title}
 							</Link>
 						</Button>

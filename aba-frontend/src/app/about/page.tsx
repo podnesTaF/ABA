@@ -15,7 +15,6 @@ import {Person} from "@/models/shared/person";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import Image from "next/image";
 import Link from "next/link";
-import {ArticleResponse} from "@/models/shared/article";
 
 const AboutPage = () => {
 	const {data} = useQuery({
@@ -33,26 +32,28 @@ const AboutPage = () => {
 			<Hero content={data.hero} />
 			<Mission content={data.missions}/>
 			<Values content={data.values} />
-			<div id={'how-we-are-different'} className={'px-4 max-w-7xl mx-auto relative py-20'}>
+			<div id={'how-we-are-different'} className={'px-5 max-w-7xl mx-auto relative py-20'}>
 				<ContentSection content={data.differences} />
 			</div>
 			<History  content={data.history} />
-			<div id={'structure'} className={'my-16'}>
+			<div id={'structure'} className={'my-16 px-5'}>
 				<Structure content={{title: data.structure.title, items: data.structure.people.map((p) => ({id: p.id, title: p.role}))}} onChange={(p) => setActivePerson(p)}>
 					{activePerson && <div className={'relative flex-1 rounded-2xl overflow-hidden'}>
 						<Image src={getImageUrl(activePerson.image.url)} alt={activePerson.image.name} height={500} width={350}
 									 className={'w-full h-auto'}/>
-						<div className={'absolute bottom-0 left-0 w-full backdrop-blur-lg p-3 text-white font-bold'}>
-							<h4 className={'text-base md:text-lg'}>
-								{activePerson.role}
-							</h4>
-							<h3 className={'text-lg md:text-xl'}>
-								{activePerson.fullName}
-							</h3>
-							<div className={'flex gap-3 items-center mt-3'}>
-								{activePerson.links.map(l => (
-									<div key={l.id}>
-										<Link href={l.link} target={"_blank"}>
+						<div className={'absolute bottom-0 left-0 w-full flex sm:flex-col gap-3 justify-between items-center md:items-start backdrop-blur-lg p-3 text-white font-bold'}>
+                <div>
+                    <h4 className={'text-base md:text-lg'}>
+											{activePerson.role}
+                    </h4>
+                    <h3 className={'text-lg md:text-xl'}>
+											{activePerson.fullName}
+                    </h3>
+                </div>
+                <div className={'flex gap-3 items-center'}>
+									{activePerson.links.map(l => (
+										<div key={l.id}>
+											<Link href={l.link} target={"_blank"}>
 											<Image src={getImageUrl(l.icon.url)} alt={l.icon.name} width={40} height={40}/>
 										</Link>
 									</div>
@@ -62,7 +63,7 @@ const AboutPage = () => {
 					</div>}
 				</Structure>
 			</div>
-			<div id={'documentation'} className={"my-10 mx-auto max-w-7xl"}>
+			<div id={'documentation'} className={"my-10 mx-auto max-w-7xl px-5"}>
 				<ContentSection content={data.legal}>
 					<div className={'my-5'}>
 						{data.legal.documents.map((

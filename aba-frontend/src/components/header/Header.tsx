@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useQuery} from "@tanstack/react-query";
 import {getHeader} from "@/api/layoutApi";
 import {NavigationMenu, NavigationMenuList} from "@/components/ui/navigation-menu";
@@ -10,9 +10,11 @@ import {getImageUrl} from "@/lib/utils/imageHelpers";
 import SubHeader from "@/components/header/SubHeader";
 import MobileNav from "@/components/header/MobileNav";
 import Link from "next/link";
+import {Menubar, MenubarMenu, MenubarTrigger} from "@/components/ui/menubar";
 
 const Header = () => {
 	const [isSticky, setIsSticky] = useState(false);
+	const trigger = useRef<any>()
 	const {data} = useQuery({
 		queryKey: ['header'],
 		queryFn: getHeader,
@@ -33,6 +35,13 @@ const Header = () => {
 		};
 	}, []);
 
+	useEffect(() => {
+		if(trigger.current) {
+			console.log('click')
+			trigger.current.click()
+		}
+	}, [trigger]);
+
 	if(!data) return null
 
 	return (
@@ -47,13 +56,11 @@ const Header = () => {
 			<div className={`bg-primary pl-8 z-20 lg:px-8 lg:py-2 h-[60px] flex justify-between items-center gap-8 w-full fixed md:relative transition-all duration-300`}>
 				<Image src={getImageUrl(data?.smallLogo.url)} alt={data?.smallLogo.name || 'logo'} width={100} height={30}
 							 className={`h-8 w-auto opacity-100 ${isSticky ? 'md:opacity-100' : 'md:opacity-0'}   transition-opacity duration-300`}/>
-				<NavigationMenu className={"bg-primary hidden lg:block"}>
-					<NavigationMenuList>
+				<Menubar ref={trigger} className={"bg-primary hidden lg:flex px-12"}>
 						{data?.primaryLinks.map((link) => (
 							<NavItem link={link} key={link.id}/>
 						))}
-					</NavigationMenuList>
-				</NavigationMenu>
+				</Menubar>
 				<MobileNav data={data} />
 			</div>
 		</div>

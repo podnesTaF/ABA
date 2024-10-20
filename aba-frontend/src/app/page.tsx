@@ -4,13 +4,13 @@ import {getNewsPreviews} from "@/api/newsApi";
 import {dehydrate, HydrationBoundary} from "@tanstack/react-query";
 import HomeHero from "@/components/home/HomeHero";
 import {HomePageData} from "@/models/pages/home";
-import { ArticleResponse} from "@/models/shared/article";
 import AboutAb from "@/components/home/AboutAB";
 import RecentNews from "@/components/home/RecentNews";
 import AboutAbaSections from "@/components/home/AboutAbaSections";
 import {FederationResponse} from "@/models/shared/federation";
 import {getFederations} from "@/api/federationApi";
 import Federations from "@/components/home/Federations";
+import {ArticleResponse} from "@/models/pages/article";
 
 export default async function Home() {
 	const queryClient = await prefetchQueries([{key:['home'], fetchFn: getHomeContent }, {key: ['articles'], fetchFn: () => getNewsPreviews(3)}, {key: ['federations'], fetchFn: () => getFederations(4)}])

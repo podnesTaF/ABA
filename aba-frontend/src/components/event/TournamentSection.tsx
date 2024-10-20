@@ -7,8 +7,8 @@ import {Button} from "@/components/ui/button";
 
 const TournamentSection = ({content, index}: { content: Tournament, index: number }) => {
 	return (
-		<div className={'flex'} id={content.slug}>
-			<div className={'translate-y-20 text-right relative flex-1 pr-5 py-5'}>
+		<div className={'flex flex-col md:flex-row'} id={content.slug}>
+			<div className={'sm:translate-y-20 text-right relative flex-1 pr-5 py-5'}>
 				{index % 2 === 0 ? (
 					<AboutSection content={content} index={index}/>
 				) : (
@@ -40,7 +40,7 @@ const AboutSection = ({content, index}: { content: Tournament, index: number }) 
 			<h3 className={'text-3xl md:text-6xl xl:text-8xl font-bold text-gray-400/20 absolute right-5 -top-7'}>
 				0{index + 1}
 			</h3>
-			<ParseContent text={content.about.description} secondaryTitleClassName={'text-lg lg:text-xl font-medium'}/>
+			<ParseContent text={content.about.description} secondaryTitleClassName={'text-base sm:text-lg lg:text-xl font-medium'}/>
 			<div className={'flex flex-col gap-4'}>
 				<h4 className={"mr-3 text-xl lg:text-2xl font-bold"}>{content.purpose.title}</h4>
 				<div className={'flex flex-col gap-5'}>
@@ -52,7 +52,7 @@ const AboutSection = ({content, index}: { content: Tournament, index: number }) 
 							<h5 className={'text-xl font-semibold'}>
 								{l.title}
 							</h5>
-							<ParseContent text={l.description!} secondaryTitleClassName={'text-lg xl:text-xl'}/>
+							<ParseContent text={l.description!} secondaryTitleClassName={'text-base sm:text-lg xl:text-xl'}/>
 						</div>
 					))}
 				</div>
@@ -84,7 +84,7 @@ const FeaturesSection = ({content, index}: { content: Tournament, index: number 
 								</>
 							)
 							}
-							{l.description && <ParseContent text={l.description} secondaryTitleClassName={'text-base md:text-lg'}/>}
+							{l.description && <ParseContent text={l.description} secondaryTitleClassName={'text-base sm:text-lg md:text-lg'}/>}
 							{l.link && (
 								<div className={'flex justify-end mt-3 w-full'}>
 									<Button className={'rounded-full'}>

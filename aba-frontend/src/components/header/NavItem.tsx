@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 import {cn} from "@/lib/utils";
+import {MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger} from "@/components/ui/menubar";
 
 interface NavItemProps {
 	link: PrimaryLink
@@ -17,41 +18,37 @@ interface NavItemProps {
 }
 
 const NavItem = ({link, isActive}: NavItemProps) => {
-	const [active, setActive] = useState(false)
 	const single = link.secondaryLinks.length === 0
 	return (
-		<NavigationMenuItem>
+		<MenubarMenu>
 			{single ? (
 					<Link href={link.link} className={cn(navigationMenuTriggerStyle(), 'bg-transparent text-white text-base font-semibold capitalize')}>
 						{link.title}
 					</Link>
 			) : (
-				<div className={'relative'} onMouseEnter={() => setActive(true)} onMouseLeave={() => setActive(false)}>
-					<NavigationMenuTrigger className={"py-0 px-5 text-white text-base font-semibold capitalize"}>
+				<div className={'relative'}>
+					<MenubarTrigger className={"py-0 px-5 text-white text-base font-semibold capitalize"}>
 						<Link href={link.link}>
 							{link.title}
 							<div
 								className={"absolute bottom-0 right-0 h-2 w-2 bg-white transition-all duration-100 group-data-[state=open]:bg-gray-200 triangle"}>
 							</div>
 						</Link>
-					</NavigationMenuTrigger>
-					<NavigationMenuContent>
-						<ul className={"w-64 xl:w-72"}>
+					</MenubarTrigger>
+					<MenubarContent>
 							{link.secondaryLinks.map(l => (
-								<li className={"p-3"} key={l.id}>
-									<Link href={l.link}>
-										<p className={'font-bold uppercase'}>
-											{l.title}
-										</p>
-									</Link>
-								</li>
+								<MenubarItem className={"px-3 py-1"} key={l.id}>
+										<Link href={l.link}>
+											<p className={'font-bold !capitalize'}>
+												{l.title}
+											</p>
+										</Link>
+								</MenubarItem>
 							))}
-						</ul>
-					</NavigationMenuContent>
-					<NavigationMenuViewport className={`${active ? "block" : "hidden"} rounded-none rounded-b-2xl shadow-sm`}/>
+					</MenubarContent>
 				</div>
 			)}
-		</NavigationMenuItem>
+		</MenubarMenu>
 	);
 };
 

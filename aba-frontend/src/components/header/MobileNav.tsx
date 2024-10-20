@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+'use client'
+
+import React, {useEffect, useState} from 'react';
 import {Plus} from "lucide-react";
 import {HeaderData} from "@/models/layout/header";
 import MenuItem from "@/components/header/MenuItem";
@@ -6,9 +8,15 @@ import SubHeader from "@/components/header/SubHeader";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import LanguagePicker from "@/components/header/LanguagePicker";
+import {usePathname} from "next/navigation";
 
 const MobileNav = ({data}: {data: HeaderData}) => {
 	const [open, setOpen] = useState(false)
+	const p = usePathname()
+	useEffect(() => {
+		setOpen(false)
+	}, [p])
+
 
 	return (
 		<>

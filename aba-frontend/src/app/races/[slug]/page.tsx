@@ -29,7 +29,7 @@ const Page = ({params}: {params: {slug: string}}) => {
 				<ContentSection content={data.categoryPreview}/>
 				<Structure content={{title: '', items: data.categories}} onChange={(cat) => setActiveCategory(cat)}>
 					{activeCategory?.description && (
-						<ParseContent text={activeCategory.description} mainTitleClassName={'font-bold text-2xl my-2'} secondaryTitleClassName={'text-xl font-medium ulist-base'} />
+						<ParseContent text={activeCategory.description} mainTitleClassName={'font-bold text-xl sm:text-2xl my-2'} secondaryTitleClassName={'text-base md:text-xl font-medium ulist-base'} />
 					)}
 				</Structure>
 			</div>

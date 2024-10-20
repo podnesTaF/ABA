@@ -17,7 +17,7 @@ const TextField: React.FC<TextFieldProps> = ({ label, name, placeholder, multili
 
 	return (
 		<div className={multiline ? "w-full h-full flex flex-col gap-2" : 'w-auto'}>
-			<label htmlFor={name}>{label}</label>
+			<label htmlFor={name} className={'text-base md:text-lg'}>{label}</label>
 			{multiline ? (
 				<Textarea
 					id={name}
@@ -31,7 +31,7 @@ const TextField: React.FC<TextFieldProps> = ({ label, name, placeholder, multili
 					type="text"
 					placeholder={placeholder}
 					{...register(name)}
-					className={"bg-white rounded-full py-4 lg:py-5 px-5"}
+					className={"bg-white rounded-full py-5 px-5"}
 				/>
 			)}
 			{errors[name] && <p className="text-red-500">{errors[name]?.message?.toString()}</p>}

@@ -7,7 +7,7 @@ import {getImageUrl} from "@/lib/utils/imageHelpers";
 const Values = ({content}: {content: SectionValues}) => {
 	return (
 		<div className={'w-full my-5'}>
-			<div className={'max-w-7xl mx-auto px-4'}>
+			<div className={'max-w-7xl mx-auto px-5'}>
 				<div className={'mb-4'}>
 					<ParseContent text={content.title} secondaryTitleClassName={'text-base md:text-xl font-bold'} mainTitleClassName={'text-xl md:text-3xl font-bold'} />
 				</div>
