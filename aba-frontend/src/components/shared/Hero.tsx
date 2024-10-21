@@ -6,12 +6,17 @@ import {getImageUrl} from "@/lib/utils/imageHelpers";
 import parse, {domToReact, HTMLReactParserOptions} from 'html-react-parser';
 import Link from "next/link";
 import NewsGrid from "@/components/shared/NewsGrid";
+import HeroSkeleton from "@/components/skeletons/HeroSkeleton";
 
-const Hero = ({content}: {content: HeroType}) => {
+const Hero = ({content,isLoading}: {content?: HeroType, isLoading?: boolean}) => {
+	const withLinks = !!content?.links?.length
 
-	const withLinks = !!content.links?.length
+	const withArticles = !!content?.articles?.length
 
-	const withArticles = !!content.articles?.length
+
+	if(isLoading || !content) {
+		return <HeroSkeleton />
+	}
 
 	return (
 		<div className={`w-full relative ${withArticles ? "pt-10 pb-20" : "pt-12 md:pt-[10%]"} pb-10`}>

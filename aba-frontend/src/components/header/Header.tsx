@@ -14,7 +14,6 @@ import {Menubar, MenubarMenu, MenubarTrigger} from "@/components/ui/menubar";
 
 const Header = () => {
 	const [isSticky, setIsSticky] = useState(false);
-	const trigger = useRef<any>()
 	const {data} = useQuery({
 		queryKey: ['header'],
 		queryFn: getHeader,
@@ -35,12 +34,6 @@ const Header = () => {
 		};
 	}, []);
 
-	useEffect(() => {
-		if(trigger.current) {
-			console.log('click')
-			trigger.current.click()
-		}
-	}, [trigger]);
 
 	if(!data) return null
 
@@ -54,13 +47,15 @@ const Header = () => {
 				</Link>
 			</div>
 			<div className={`bg-primary pl-8 z-20 lg:px-8 lg:py-2 h-[60px] flex justify-between items-center gap-8 w-full fixed md:relative transition-all duration-300`}>
+				<Link href={'/'}>
 				<Image src={getImageUrl(data?.smallLogo.url)} alt={data?.smallLogo.name || 'logo'} width={100} height={30}
 							 className={`h-8 w-auto opacity-100 ${isSticky ? 'md:opacity-100' : 'md:opacity-0'}   transition-opacity duration-300`}/>
-				<Menubar ref={trigger} className={"bg-primary hidden lg:flex px-12"}>
-						{data?.primaryLinks.map((link) => (
-							<NavItem link={link} key={link.id}/>
+				</Link>
+				<div  className={"bg-primary hidden lg:flex"}>
+						{data?.primaryLinks.map((link, index, arr) => (
+							<NavItem link={link} key={link.id} isLastWithItems={index === arr.length - 1 || index === arr.length - 2}/>
 						))}
-				</Menubar>
+				</div>
 				<MobileNav data={data} />
 			</div>
 		</div>

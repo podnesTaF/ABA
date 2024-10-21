@@ -17,7 +17,7 @@ const LanguagePicker = ({variant = 'dark'}: {variant: "dark" | 'light'}) => {
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
 			<PopoverTrigger asChild>
-				<Button aria-expanded={open} variant="ghost" className={`text-lg font-semibold ${variant === 'dark' ? "text-black" : "text-white"}`}>
+				<Button hideIcon={true} aria-expanded={open} variant="ghost" className={`text-lg font-semibold ${variant === 'dark' ? "text-black" : "text-white"}`}>
 					{value
 						? value
 						: "ENG"}

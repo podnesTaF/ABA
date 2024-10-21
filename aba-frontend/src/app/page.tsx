@@ -13,7 +13,7 @@ import Federations from "@/components/home/Federations";
 import {ArticleResponse} from "@/models/pages/article";
 
 export default async function Home() {
-	const queryClient = await prefetchQueries([{key:['home'], fetchFn: getHomeContent }, {key: ['articles'], fetchFn: () => getNewsPreviews(3)}, {key: ['federations'], fetchFn: () => getFederations(4)}])
+	const queryClient = await prefetchQueries([{key:['home'], fetchFn: getHomeContent }, {key: ['articles'], fetchFn: () => getNewsPreviews({count: 3})}, {key: ['federations'], fetchFn: () => getFederations({count: 4})}])
 
 	const content: HomePageData | undefined = queryClient.getQueryData(['home'])
 

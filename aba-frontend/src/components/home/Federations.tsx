@@ -16,7 +16,7 @@ const Federations = ({content, federations}: {content: FederationsHome, federati
 					<h3 className={'uppercase text-xl md:text-2xl xl:text-3xl font-bold'}>
 						{content.title}
 					</h3>
-					<Button variant={'ghost'}>
+					<Button hideIcon variant={'ghost'}>
 						<Link href={content.ctaButton.link} className={'text-secondary'}>
 							{content.ctaButton.title}
 						</Link>

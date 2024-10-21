@@ -3,7 +3,6 @@ import {Article} from "@/models/pages/article";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import {Button} from "@/components/ui/button";
-import {ArrowDownRightIcon} from "lucide-react";
 import Link from "next/link";
 
 const ArticlePreview = ({article, large}: {article: Article, large?: boolean}) => {
@@ -16,11 +15,10 @@ const ArticlePreview = ({article, large}: {article: Article, large?: boolean}) =
 				</h5>
 				<div className={'flex justify-between gap-5 items-center'}>
 					<p className={'text-sm'}>{article.Excerpt}</p>
-					<Button className={`rounded-full ${large ? "bg-white" : "bg-primary"}`}>
-						<Link href={`/news/${article.slug}`}>
-							<ArrowDownRightIcon className={`${!large ? "text-white" : "text-primary"}`} size={24} />
-						</Link>
+					<Link href={`/news/${article.slug}`}>
+					<Button className={'p-3 !gap-0'} variant={large ? "light" : "default"}>
 					</Button>
+					</Link>
 				</div>
 			</div>
 		</div>
