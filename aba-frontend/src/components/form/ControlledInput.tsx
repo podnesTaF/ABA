@@ -1,5 +1,4 @@
 import React from 'react';
-import {Textarea} from "@/components/ui/textarea";
 import {Input} from "@/components/ui/input";
 
 type ControlledInputProps = {

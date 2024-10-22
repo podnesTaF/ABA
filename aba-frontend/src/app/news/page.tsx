@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useMemo, useState} from 'react';
+import React, {useState} from 'react';
 import {useQuery} from "@tanstack/react-query";
 import {getNewsPage, getNewsPreviews} from "@/api/newsApi";
 import Hero from "@/components/shared/Hero";
@@ -8,7 +8,6 @@ import NewsPreview from "@/components/shared/NewsPreview";
 import {Tabs, TabsList, TabsTrigger} from '@/components/ui/tabs';
 import ControlledInput from "@/components/form/ControlledInput";
 import {SearchIcon} from "lucide-react";
-import {debounce} from 'lodash';
 import {useDebounce} from "@/lib/hooks/useDebounce";
 import CardGroupSkeleton from "@/components/skeletons/CardGroupSkeleton";
 

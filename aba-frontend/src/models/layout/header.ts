@@ -1,5 +1,5 @@
 import {Media} from "@/models/shared/media";
-import {ExternalLink, Link, PrimaryLink} from "@/models/shared/link";
+import {ExternalLink, PrimaryLink} from "@/models/shared/link";
 
 export type HeaderData = {
 	id: number;

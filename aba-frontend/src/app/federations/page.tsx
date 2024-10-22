@@ -4,12 +4,9 @@ import {useQuery} from "@tanstack/react-query";
 import {getFederations, getFederationsPage} from "@/api/federationApi";
 import Hero, {ParseContent} from "@/components/shared/Hero";
 import ContentSection from "@/components/shared/ContentSection";
-import Image from "next/image";
-import {getImageUrl} from "@/lib/utils/imageHelpers";
-import {FormInput, SearchIcon} from "lucide-react";
+import {SearchIcon} from "lucide-react";
 import ControlledInput from "@/components/form/ControlledInput";
 import FederationCard from "@/components/shared/FederationCard";
-import {cn} from "@/lib/utils";
 import {useDebounce} from "@/lib/hooks/useDebounce";
 import {Skeleton} from "@/components/ui/skeleton";
 

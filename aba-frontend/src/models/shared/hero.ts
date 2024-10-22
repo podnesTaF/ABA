@@ -1,6 +1,6 @@
 import {Link} from "@/models/shared/link";
-import {Article} from "@/models/shared/article";
 import {Media} from "@/models/shared/media";
+import {Article} from "@/models/pages/article";
 
 export type Hero = {
 	id: number;

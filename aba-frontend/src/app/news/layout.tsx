@@ -4,7 +4,7 @@ import {getNewsPage, getNewsPreviews} from "@/api/newsApi";
 import {dehydrate, HydrationBoundary} from "@tanstack/react-query";
 
 const Layout = async ({children}: {children: React.ReactNode}) => {
-	const qc = await prefetchQueries([{key: ['news'], fetchFn: getNewsPreviews}, {key:['newsPage'], fetchFn: getNewsPage}])
+	const qc = await prefetchQueries([{key: ['news'], fetchFn:() => getNewsPreviews({})}, {key:['newsPage'], fetchFn: getNewsPage}])
 
 	return (
 		<HydrationBoundary state={dehydrate(qc)}>

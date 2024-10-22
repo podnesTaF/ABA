@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {PrimaryLink} from "@/models/shared/link";
 import {
 	navigationMenuTriggerStyle
@@ -18,22 +18,8 @@ const NavItem = ({link, isActive, isLastWithItems}: NavItemProps) => {
 	const [dropdownOpen, setDropdownOpen] = useState(false);
 	const dropdownRef = useRef<HTMLDivElement>(null); // Reference to the dropdown
 	const single = link.secondaryLinks.length === 0;
-	const [dropdownPosition, setDropdownPosition] = useState<string>('left-0'); // Initial dropdown position
 	const mouseLeaveTimeout = useRef<NodeJS.Timeout | null>(null); // To debounce mouse leave
 
-	useEffect(() => {
-		if (dropdownRef.current && dropdownOpen) {
-			const dropdownRect = dropdownRef.current.getBoundingClientRect();
-			const viewportWidth = window.innerWidth;
-
-			// Adjust dropdown position if it would overflow
-			if (dropdownRect.right > viewportWidth - 8) {
-				setDropdownPosition(`right-0`); // Align to the right if it overflows
-			} else {
-				setDropdownPosition('left-0'); // Default position
-			}
-		}
-	}, [dropdownOpen]);
 
 	const handleMouseEnter = () => {
 		setDropdownOpen(true); // Open the dropdown

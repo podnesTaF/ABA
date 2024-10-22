@@ -4,7 +4,7 @@ import {TNewsPage} from "@/models/pages/news";
 import {Article,ArticleResponse} from "@/models/pages/article";
 
 export const getNewsPreviews = async ({count, name, category}: {count?: number, name?: string, category?: string}): Promise<ArticleResponse> => {
-	const queryParams = [];
+	const queryParams: string[] = [];
 
 	if (count) {
 		queryParams.push(`pagination[pageSize]=${count}`);

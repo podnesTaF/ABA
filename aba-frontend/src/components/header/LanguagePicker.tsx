@@ -10,9 +10,6 @@ const LanguagePicker = ({variant = 'dark'}: {variant: "dark" | 'light'}) => {
 	const [open, setOpen] = useState(false)
 	const [value, setValue] = React.useState("")
 
-	const onChangeLanguage = (value: string) => {
-		setValue(value)
-	}
 
 	return (
 		<Popover open={open} onOpenChange={setOpen}>

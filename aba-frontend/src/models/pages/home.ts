@@ -1,7 +1,6 @@
 import {Media} from "@/models/shared/media";
 import {CTAButton} from "@/models/shared/cta";
 import {CoreValue} from "@/models/shared/coreValue";
-import type {Federation} from "@/models/shared/federation";
 import { z } from "zod";
 
 export interface RequestHomePageData {

@@ -5,7 +5,7 @@ import {FederationsPage} from "@/models/pages/federations";
 import {Meta} from "@/models/shared/meta";
 
 export const getFederations = async ({ count, name }: { count?: number, name?: string }): Promise<FederationResponse> => {
-	const queryParams = [];
+	const queryParams: string[]  = [];
 
 	if (count) {
 		queryParams.push(`pagination[pageSize]=${count}`);

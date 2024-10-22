@@ -21,7 +21,7 @@ const ContactForm = ({fields, btn}: {fields: FormField[], btn: CTAButton}) => {
 				duration: 2000
 			})
 		},
-		onError: e => {
+		onError: () => {
 			toast("Error while sending message", {
 				description: "We cannot deliver your message, please try again",
 				duration: 2000,

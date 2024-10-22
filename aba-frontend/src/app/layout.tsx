@@ -1,31 +1,17 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import React from "react";
 import Providers from "@/lib/providers/Providers";
-import {prefetchQueries, prefetchQuery} from "@/lib/utils/queryHelpers";
+import {prefetchQueries} from "@/lib/utils/queryHelpers";
 import {getFooter, getHeader} from "@/api/layoutApi";
 import {dehydrate, HydrationBoundary} from "@tanstack/react-query";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import { Toaster } from "@/components/ui/sonner"
-import Head from "next/head";
-import { Roboto_Mono } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
 
-const helvetica = localFont({
-  src: "./fonts/Helvetica.ttf",
-  variable: "--font-helvetica",
-  weight: "400 500 600 700",
-  display: 'swap',
-});
-
-const montserrat = localFont({
-  src: "./fonts/Montserrat-VariableFont_wght.ttf",
-  variable: "--font-montserrat",
-  weight: "400 500 600 700 800",
-  display: 'swap',
-});
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: "Ace Battle Association",
@@ -41,7 +27,7 @@ export default async function RootLayout({
 
 
   return (
-    <html lang="en"  className={`${helvetica.className}`}>
+    <html lang="en"  className={`${inter.className}`}>
 
     <body
       className={`antialiased`}

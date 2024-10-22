@@ -5,7 +5,6 @@ import {useQuery} from "@tanstack/react-query";
 import {getFederation} from "@/api/federationApi";
 import Hero, {ParseContent} from "@/components/shared/Hero";
 import FederationInfoCard from "@/components/shared/FederationInfoCard";
-import ContentSection from "@/components/shared/ContentSection";
 import DocumentView from "@/components/shared/DocumentView";
 
 const FederationPage = ({params: {slug}}: { params: { slug: string } }) => {

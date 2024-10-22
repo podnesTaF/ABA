@@ -1,8 +1,6 @@
 import {LinkSection} from "@/models/shared/link";
 import {Hero} from "@/models/shared/hero";
-import {Article} from "@/models/shared/article";
 import {Media} from "@/models/shared/media";
-import NewsPreview from "@/components/shared/NewsPreview";
 import {RecentNews} from "@/models/pages/home";
 
 

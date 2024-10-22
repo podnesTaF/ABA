@@ -18,7 +18,7 @@ const Page = () => {
 
 	const {data: articles} = useQuery({
 		queryKey: ['articles'],
-		queryFn: () => getNewsPreviews(3)
+		queryFn: () => getNewsPreviews({count:3})
 	})
 
 	if(!data?.news) return null;

@@ -1,16 +1,14 @@
 'use client'
 
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useQuery} from "@tanstack/react-query";
 import {getHeader} from "@/api/layoutApi";
-import {NavigationMenu, NavigationMenuList} from "@/components/ui/navigation-menu";
 import NavItem from "@/components/header/NavItem";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import SubHeader from "@/components/header/SubHeader";
 import MobileNav from "@/components/header/MobileNav";
 import Link from "next/link";
-import {Menubar, MenubarMenu, MenubarTrigger} from "@/components/ui/menubar";
 
 const Header = () => {
 	const [isSticky, setIsSticky] = useState(false);

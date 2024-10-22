@@ -4,7 +4,6 @@ import {Form} from "@/models/shared/form";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import {ParseContent} from "@/components/shared/Hero";
 import ContactForm from "@/components/about/ContactForm";
-import {Button} from "@/components/ui/button";
 
 const Contact = ({content}: {content: Form}) => {
 
