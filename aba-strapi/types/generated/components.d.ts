@@ -208,6 +208,94 @@ export interface TournamentsOverview extends Struct.ComponentSchema {
   };
 }
 
+export interface FedirationsStructure extends Struct.ComponentSchema {
+  collectionName: 'components_fedirations_structures';
+  info: {
+    displayName: 'Structure';
+  };
+  attributes: {
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    people: Schema.Attribute.Relation<'oneToMany', 'api::person.person'>;
+  };
+}
+
+export interface CtaCtaText extends Struct.ComponentSchema {
+  collectionName: 'components_cta_cta_texts';
+  info: {
+    displayName: 'CTA Button';
+    description: '';
+  };
+  attributes: {
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ContentBlockText extends Struct.ComponentSchema {
+  collectionName: 'components_content_block_texts';
+  info: {
+    displayName: 'Text';
+    description: '';
+  };
+  attributes: {
+    text: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+  };
+}
+
+export interface ContentBlockImageBlock extends Struct.ComponentSchema {
+  collectionName: 'components_content_block_image_blocks';
+  info: {
+    displayName: 'Image Block';
+    description: '';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface AboutValues extends Struct.ComponentSchema {
+  collectionName: 'components_about_values';
+  info: {
+    displayName: 'Values';
+  };
+  attributes: {
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    coreValues: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::core-value.core-value'
+    >;
+  };
+}
+
+export interface AboutStructure extends Struct.ComponentSchema {
+  collectionName: 'components_about_structures';
+  info: {
+    displayName: 'Structure';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    people: Schema.Attribute.Relation<'oneToMany', 'api::person.person'>;
+  };
+}
+
 export interface HomeHomePage extends Struct.ComponentSchema {
   collectionName: 'components_home_home_pages';
   info: {
@@ -314,94 +402,6 @@ export interface HomeAboutAb extends Struct.ComponentSchema {
   };
 }
 
-export interface CtaCtaText extends Struct.ComponentSchema {
-  collectionName: 'components_cta_cta_texts';
-  info: {
-    displayName: 'CTA Button';
-    description: '';
-  };
-  attributes: {
-    link: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface FedirationsStructure extends Struct.ComponentSchema {
-  collectionName: 'components_fedirations_structures';
-  info: {
-    displayName: 'Structure';
-  };
-  attributes: {
-    title: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    people: Schema.Attribute.Relation<'oneToMany', 'api::person.person'>;
-  };
-}
-
-export interface AboutValues extends Struct.ComponentSchema {
-  collectionName: 'components_about_values';
-  info: {
-    displayName: 'Values';
-  };
-  attributes: {
-    title: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    coreValues: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::core-value.core-value'
-    >;
-  };
-}
-
-export interface AboutStructure extends Struct.ComponentSchema {
-  collectionName: 'components_about_structures';
-  info: {
-    displayName: 'Structure';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    people: Schema.Attribute.Relation<'oneToMany', 'api::person.person'>;
-  };
-}
-
-export interface ContentBlockText extends Struct.ComponentSchema {
-  collectionName: 'components_content_block_texts';
-  info: {
-    displayName: 'Text';
-    description: '';
-  };
-  attributes: {
-    text: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-  };
-}
-
-export interface ContentBlockImageBlock extends Struct.ComponentSchema {
-  collectionName: 'components_content_block_image_blocks';
-  info: {
-    displayName: 'Image Block';
-    description: '';
-  };
-  attributes: {
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -417,17 +417,17 @@ declare module '@strapi/strapi' {
       'shared.document-section': SharedDocumentSection;
       'shared.base-info-section': SharedBaseInfoSection;
       'tournaments.overview': TournamentsOverview;
+      'fedirations.structure': FedirationsStructure;
+      'cta.cta-text': CtaCtaText;
+      'content-block.text': ContentBlockText;
+      'content-block.image-block': ContentBlockImageBlock;
+      'about.values': AboutValues;
+      'about.structure': AboutStructure;
       'home.home-page': HomeHomePage;
       'home.home-news': HomeHomeNews;
       'home.federations': HomeFederations;
       'home.about2': HomeAbout2;
       'home.about-ab': HomeAboutAb;
-      'cta.cta-text': CtaCtaText;
-      'fedirations.structure': FedirationsStructure;
-      'about.values': AboutValues;
-      'about.structure': AboutStructure;
-      'content-block.text': ContentBlockText;
-      'content-block.image-block': ContentBlockImageBlock;
     }
   }
 }
