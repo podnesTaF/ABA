@@ -13,7 +13,7 @@ const MenuItem = ({link, last}: {link: PrimaryLink, last: boolean}) => {
 				<Link href={link.link} className={'text-lg font-semibold flex-1 capitalize leading-8'}>
 					{link.title}
 				</Link>
-				{!single && <Button variant={'ghost'} onClick={() => setIsExpanded(prev => !prev)}>
+				{!single && <Button hideIcon={true} variant={'ghost'} onClick={() => setIsExpanded(prev => !prev)}>
 					<ChevronRight className={`${isExpanded ? 'rotate-90' : "rotate-0"} transition-all duration-200 text-2xl`}/>
 				</Button>}
 			</div>

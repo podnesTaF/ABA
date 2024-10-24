@@ -8,6 +8,11 @@ const nextConfig = {
                 port: '1337',
                 pathname: '/uploads/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'aba-api.up.railway.app',
+                pathname: '/uploads/**',
+            },
         ],
     },
 };

@@ -12,25 +12,22 @@ const AboutAb = ({content}: {content: AboutAB}) => {
 			<div className={'p-[5%] max-w-7xl mx-auto flex flex-col gap-10'}>
 				<div className={'flex gap-10 xl:gap-12 items-center flex-col md:flex-row'}>
 					<div className={'flex flex-col gap-5 flex-1'}>
-						<h3 className={'font-semibold'}>
+						<h3 className={'font-semibold text-lg md:text-xl'}>
 							{content.sectionTitle}
 						</h3>
 						<div>
-							<h2 className={'text-xl md:text-2xl xl:text-5xl font-bold mb-4'}>
-								{content.title}
-							</h2>
-							<ParseContent text={content.description} secondaryTitleClassName={'text-lg md:text-xl xl:text-2xl'} />
+							<ParseContent text={content.description} mainTitleClassName={"text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl font-bold mb-4"} secondaryTitleClassName={'text-lg md:text-xl xl:text-xl'} />
 						</div>
-						<div>
+						{content.ctaButton && <div>
 							<Button className={'text-white bg-secondary hover:bg-secondary/80 rounded-full'}>
 								<Link href={content.ctaButton.link}>
 									{content.ctaButton.title}
 								</Link>
 							</Button>
-						</div>
+						</div>}
 					</div>
 					<div className={'flex-1'}>
-						<Image src={getImageUrl(content.sideImage.url)} alt={content.sideImage.name} width={500} height={440}
+						<Image src={getImageUrl(content.sideImage?.url)} alt={content.sideImage?.name} width={500} height={440}
 									 className={'rounded-2xl'}/>
 					</div>
 				</div>
