@@ -22,7 +22,7 @@ const Mission = ({content}: {content: InfoSection[]}) => {
 									<ParseContent text={mission.description} mainTitleClassName={"text-lg md:text-xl lg:text-2xl 2xl:text-3xl font-bold mb-1 md:mb-3 max-w-sm"} />
 								</div>
 							)}
-							<Image src={getImageUrl(mission.media.url)} alt={mission.media.name} width={500} height={400} className={'max-w-xl h-full w-full object-cover  rounded-xl'} />
+							<Image src={getImageUrl(mission.media?.url)} alt={mission.media?.name} width={500} height={400} className={'max-w-xl h-full w-full object-cover  rounded-xl'} />
 						</div>
 					)))}
 				</div>

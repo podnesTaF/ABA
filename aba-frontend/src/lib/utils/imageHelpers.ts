@@ -3,6 +3,6 @@ export const getImageUrl = (imagePath?: string | null) => {
 	if(!imagePath || !base_url) {
 			return "/placeholders/no-image-found.png"
 		} else {
-			return `	${imagePath}`
+			return `${imagePath}`
 		}
 }
