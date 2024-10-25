@@ -13,6 +13,11 @@ const nextConfig = {
                 hostname: 'aba-api.up.railway.app',
                 pathname: '/uploads/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com',
+                pathname: '/dnk2rojr7/**',
+            },
         ],
     },
 };

@@ -56,7 +56,7 @@ const ContentSection = ({content, textAlign}: { content: AboutABA, textAlign: 't
 
 const MediaSection = ({media}: {media: Media}) => {
 	return (
-		<Image src={getImageUrl(media.url)} alt={media.name} width={600} height={400} className={'object-cover md:object-contain w-full md:max-h-[400px]'} />
+		<Image src={getImageUrl(media?.url)} alt={media?.name} width={600} height={400} className={'object-cover md:object-contain w-full md:max-h-[400px]'} />
 	)
 }
 
