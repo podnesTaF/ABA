@@ -27,9 +27,9 @@ const Hero = ({content,isLoading}: {content?: HeroType, isLoading?: boolean}) =>
 				{withLinks &&
 						<div className={'flex flex-col md:flex-row gap-2'}>
 					{content.links.map((l, index) => (
-						<div key={l.id} className={`px-3 py-1 border-b-secondary ${index === 0 ? "border-b-2" : "border-b-0"} hover:opacity-90 w-fit`}>
+						<div key={l.id} className={`px-3 py-1 ${index === 0 ? "bg-white" : "bg-transparent"} hover:opacity-90 w-fit`}>
 							<Link href={l.link || ''}>
-								<h4 className={`${index === 0 ? "text-secondary" : "text-white"} text-base font-semibold`}>
+								<h4 className={`${index === 0 ? "text-primary" : "text-white"} text-base font-semibold`}>
 									{l.title}
 								</h4>
 							</Link>

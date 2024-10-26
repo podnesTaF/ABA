@@ -5,18 +5,19 @@ import Link from "next/link";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import {ParseContent} from "@/components/shared/Hero";
+import Section from "@/components/layout/Section";
 
 const AboutAb = ({content}: {content: AboutAB}) => {
 	return (
-		<div className={"bg-white -my-10 w-full  justify-center items-center -translate-y-10 rounded-3xl relative z-[2]"}>
-			<div className={'p-[5%] max-w-7xl mx-auto flex flex-col gap-10'}>
-				<div className={'flex gap-10 xl:gap-12 items-center flex-col md:flex-row'}>
-					<div className={'flex flex-col gap-5 flex-1'}>
+		<div className={"bg-white -my-10 w-full justify-center items-center -translate-y-10 rounded-3xl relative z-[2]"}>
+			<Section>
+				<div className={'flex gap-10 xl:gap-16 items-center justify-between flex-col md:flex-row'}>
+					<div className={'flex flex-col gap-5 flex-1 px-4'}>
 						<h3 className={'font-semibold text-lg md:text-xl'}>
 							{content.sectionTitle}
 						</h3>
 						<div>
-							<ParseContent text={content.description} mainTitleClassName={"text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl font-bold mb-4"} secondaryTitleClassName={'text-lg md:text-xl xl:text-xl'} />
+							<ParseContent text={content.description} mainTitleClassName={"text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl font-bold mb-4 leading-[160%]"} secondaryTitleClassName={'text-lg md:text-xl xl:text-xl leading-[160%]'} />
 						</div>
 						{content.ctaButton && <div>
 							<Button className={'text-white bg-secondary hover:bg-secondary/80 rounded-full'}>
@@ -28,7 +29,7 @@ const AboutAb = ({content}: {content: AboutAB}) => {
 					</div>
 					<div className={'flex-1'}>
 						<Image src={getImageUrl(content.sideImage?.url)} alt={content.sideImage?.name} width={500} height={440}
-									 className={'rounded-2xl'}/>
+									 className={'rounded-2xl w-full h-auto'}/>
 					</div>
 				</div>
 				<div
@@ -41,7 +42,7 @@ const AboutAb = ({content}: {content: AboutAB}) => {
 						</div>
 					))}
 				</div>
-			</div>
+			</Section>
 		</div>
 	);
 };

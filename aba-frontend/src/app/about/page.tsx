@@ -36,8 +36,8 @@ const AboutPage = () => {
 				<ContentSection content={data.differences} />
 			</div>
 			<History  content={data.history} />
-			<div id={'structure'} className={'my-16 px-5'}>
-				<Structure content={{title: data.structure.title, items: data.structure.people.map((p) => ({id: p.id, title: p.role}))}} onChange={(p) => setActivePerson(p)}>
+			<div id={'structure'}>
+				<Structure content={{title: data.structure.title, items: data.structure.people.map((p) => ({id: p.id, title: p.role}))}} onChange={(p) => setActivePerson(data?.structure.people.find(person => person.id ===p.id))}>
 					{activePerson && <div className={'relative flex-1 rounded-2xl overflow-hidden'}>
 						<Image src={getImageUrl(activePerson.image.url)} alt={activePerson.image.name} height={500} width={350}
 									 className={'w-full h-auto'}/>
@@ -63,7 +63,7 @@ const AboutPage = () => {
 					</div>}
 				</Structure>
 			</div>
-			<div id={'documentation'} className={"my-10 mx-auto max-w-7xl px-5"}>
+			<div id={'documentation'} className={"mb-[120px] mx-auto max-w-7xl px-5"}>
 				<ContentSection content={data.legal}>
 					<div className={'my-5'}>
 						{data.legal.documents.map((

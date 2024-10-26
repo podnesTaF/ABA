@@ -3,13 +3,14 @@ import {SectionValues} from "@/models/pages/about";
 import {ParseContent} from "@/components/shared/Hero";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
+import Section from "@/components/layout/Section";
 
 const Values = ({content}: {content: SectionValues}) => {
 	return (
 		<div className={'w-full my-5'}>
-			<div className={'max-w-7xl mx-auto px-5'}>
+			<Section className={'pt-0 lg:pt-0'}>
 				<div className={'mb-4'}>
-					<ParseContent text={content.title} secondaryTitleClassName={'text-base md:text-xl font-bold'} mainTitleClassName={'text-xl md:text-3xl font-bold'} />
+					<ParseContent text={content.title} secondaryTitleClassName={'text-base md:text-xl font-medium'} mainTitleClassName={'text-xl md:text-3xl font-bold uppercase'} />
 				</div>
 				<div className={'flex justify-around flex-wrap items-center gap-16'}>
 					{content.coreValues.map((v) => (
@@ -21,7 +22,7 @@ const Values = ({content}: {content: SectionValues}) => {
 						</div>
 					))}
 				</div>
-			</div>
+			</Section>
 		</div>
 	);
 };

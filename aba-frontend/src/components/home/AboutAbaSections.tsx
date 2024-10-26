@@ -6,11 +6,12 @@ import {Media} from "@/models/shared/media";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import {ParseContent} from "@/components/shared/Hero";
+import Section from "@/components/layout/Section";
 
 const AboutAbaSections = ({content}: {content: AboutABA[]}) => {
 	return (
-		<div className={'w-full justify-center items-center py-12 px-4'}>
-			<div className={'max-w-7xl mx-auto'}>
+		<div className={'w-full justify-center items-center px-4'}>
+			<Section>
 				{content.map((section, i) => (
 					<div key={section.id} className={'flex flex-col md:flex-row relative justify-center items-end'}>
 						<div className={'flex-1 pt-10 flex justify-end'}>
@@ -30,7 +31,7 @@ const AboutAbaSections = ({content}: {content: AboutABA[]}) => {
 						</div>
 					</div>
 				))}
-			</div>
+			</Section>
 		</div>
 	);
 };
@@ -39,12 +40,12 @@ const AboutAbaSections = ({content}: {content: AboutABA[]}) => {
 const ContentSection = ({content, textAlign}: { content: AboutABA, textAlign: 'text-left' | "text-right"}) => {
 	return (
 		<div className={'flex flex-col gap-4 p-5 max-w-lg items-end'}>
-			<h2 className={`font-bold uppercase text-lg md:text-xl lg:text-2xl xl:text-3xl text-right ${textAlign === "text-right" ? "md:text-right" : "md:text-left"}`}>
+			<h2 className={`font-bold uppercase text-lg md:text-xl lg:text-2xl xl:text-4xl`}>
 				{content.title}
 			</h2>
-			<ParseContent text={content.description} secondaryTitleClassName={`text-right ${ "md:" +textAlign}`} />
+			<ParseContent text={content.description} secondaryTitleClassName={`text-base xl:text-lg leading-[160%]`} />
 			<div>
-				<Button className={'text-white bg-secondary hover:bg-secondary/80 rounded-full capitalize'}>
+				<Button className={'text-white bg-secondary hover:bg-secondary/80 rounded-full capitalize py-3 px-4 text-lg'}>
 					<Link href={content.ctaButton.link}>
 						{content.ctaButton.title}
 					</Link>

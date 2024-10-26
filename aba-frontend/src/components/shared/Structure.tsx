@@ -10,15 +10,15 @@ const Structure = ({content, children, onChange}: { content: {title: string, ite
 
 	return (
 		<div className={'max-w-7xl mx-auto w-full relative'}>
-			<h3 className={'font-bold text-xl mb-4'}>{content.title}</h3>
+			<h3 className={'font-bold text-xl uppercase mb-4'}>{content.title}</h3>
 			<div className={'flex flex-col md:flex-row gap-5 lg:gap-8'}>
-				<div className={'rounded-xl overflow-hidden bg-primary w-full sm:w-1/2 md:w-1/3 h-fit md:sticky md:top-20'}>
+				<div className={'rounded-xl bg-primary w-full flex flex-col md:w-96 h-fit md:sticky md:top-20'}>
 					{content.items.map((p => (
 						<div onClick={() => {
 							onChange(p)
 							setActiveItem(p)}
 						} key={p.id}
-								 className={`flex gap-5 justify-between items-center py-3 px-4 rounded-xl text-white ${p.id === activeItem.id ? "bg-secondary" : "bg-primary"} cursor-pointer hover:opacity-90`}>
+								 className={`flex gap-5 w-full justify-between items-center py-3 px-4 rounded-xl text-white ${p.id === activeItem.id ? "bg-secondary" : "bg-primary"} cursor-pointer hover:opacity-90`}>
 							<p className={'font-bold text-lg md:text-xl'}>
 								{p.title}
 							</p>

@@ -40,7 +40,7 @@ const ContactForm = ({fields, btn}: {fields: FormField[], btn: CTAButton}) => {
 
 	return (
 			<FormProvider {...methods}>
-				<form onSubmit={methods.handleSubmit((dto) => mutate(dto))} className={'w-full flex flex-col gap-5'}>
+				<form onSubmit={methods.handleSubmit((dto) => mutate(dto))} className={'w-full flex flex-col gap-8 lg:gap-12'}>
 					<div className={'flex flex-col lg:flex-row gap-5 flex-1'}>
 						<div className="grid grid-cols-1 gap-4 flex-1">
 							{fields.slice(0, 3).map((f) => (
