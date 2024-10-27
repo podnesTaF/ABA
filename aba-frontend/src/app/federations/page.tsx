@@ -9,6 +9,8 @@ import ControlledInput from "@/components/form/ControlledInput";
 import FederationCard from "@/components/shared/FederationCard";
 import {useDebounce} from "@/lib/hooks/useDebounce";
 import {Skeleton} from "@/components/ui/skeleton";
+import Section from "@/components/layout/Section";
+import Image from "next/image";
 
 const FederationsPage = () => {
 	const [name, setName] = useState("")
@@ -30,9 +32,11 @@ const FederationsPage = () => {
 		<div>
 			<Hero content={pageData?.hero} />
 			<div className={'-translate-y-10 rounded-3xl bg-white'}>
-				<div className={"max-w-7xl px-4 mx-auto py-12 flex flex-col gap-12"}>
-					<ContentSection content={pageData.aboutABA} secondaryTitleClassName={'flex flex-row-reverse items-center gap-2'} />
-					<div className={'flex flex-col lg:flex-row gap-5'}>
+				<Section className={'relative'}>
+						<ContentSection containerClass={'flex gap-4 flex-col lg:flex-row items-start'} content={pageData.aboutABA} secondaryTitleClassName={'flex flex-row-reverse items-center gap-2'}>
+							{pageData.aboutABA.media?.url && <Image src={pageData.aboutABA.media.url} alt={pageData.aboutABA.media.name} width={400} height={350} /> }
+						</ContentSection>
+					<div className={'flex flex-col lg:flex-row gap-5 pt-20 lg:pt-24'}>
 						<ParseContent text={pageData.federationHead.description!} mainTitleClassName={'font-bold text-2xl my-2'} secondaryTitleClassName={'text-xl font-medium ulist-base'} />
 						<div className={"flex flex-col gap-12 flex-1 min-h-96"}>
 							<div className={'flex justify-end'}>
@@ -57,7 +61,7 @@ const FederationsPage = () => {
 							</div>
 						</div>
 					</div>
-				</div>
+				</Section>
 			</div>
 		</div>
 	);

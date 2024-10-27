@@ -4,6 +4,7 @@ import {ParseContent} from "@/components/shared/Hero";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import {Button} from "@/components/ui/button";
+import Link from "next/link";
 
 const TournamentSection = ({content, index}: { content: Tournament, index: number }) => {
 	return (
@@ -40,13 +41,13 @@ const AboutSection = ({content, index}: { content: Tournament, index: number }) 
 			<h3 className={'text-3xl md:text-6xl xl:text-8xl font-bold text-gray-400/20 absolute right-5 -top-7'}>
 				0{index + 1}
 			</h3>
-			<ParseContent text={content.about.description} secondaryTitleClassName={'text-base sm:text-lg lg:text-xl font-medium'}/>
+			<ParseContent text={content.about.description} secondaryTitleClassName={'text-base sm:text-lg lg:text-xl font-medium text-left'}/>
 			<div className={'flex flex-col gap-4'}>
 				<h4 className={"mr-3 text-xl lg:text-2xl font-bold"}>{content.purpose.title}</h4>
 				<div className={'flex flex-col gap-5'}>
 					{content.purpose.links.map((l, index) => (
-						<div className={'relative'} key={l.id}>
-							<h5 className={'text-3xl lg:text-6xl font-bold text-gray-500/20 absolute left-0 -top-4'}>
+						<div className={'relative text-left'} key={l.id}>
+							<h5 className={'text-3xl lg:text-6xl font-bold text-gray-500/20 absolute right-0 -top-4'}>
 								{index + 1}.
 							</h5>
 							<h5 className={'text-xl font-semibold'}>
@@ -75,21 +76,23 @@ const FeaturesSection = ({content, index}: { content: Tournament, index: number 
 						<div className={'relative'} key={l.id}>
 							{l.title && (
 								<>
-									<h5 className={'font-semibold text-lg md:text-xl xl:text-2xl mb-2'}>
+									<h5 className={'font-semibold text-left text-lg md:text-xl xl:text-2xl mb-2'}>
 										{l.title}
 									</h5>
-									<h5 className={`text-3xl lg:text-6xl font-bold text-gray-500/20 absolute ${index % 2 === 0 ? "right-0" : "left-0"} -top-5`}>
+									<h5 className={`text-3xl lg:text-6xl font-bold text-gray-500/20 absolute ${index % 2 === 0 ? "right-0" : "right-0"} -top-5`}>
 										{i + 1}.
 									</h5>
 								</>
 							)
 							}
-							{l.description && <ParseContent text={l.description} secondaryTitleClassName={'text-base sm:text-lg md:text-lg'}/>}
+							{l.description && <ParseContent text={l.description} secondaryTitleClassName={'text-base text-left sm:text-lg md:text-lg'}/>}
 							{l.link && (
 								<div className={'flex justify-end mt-3 w-full'}>
-									<Button className={'rounded-full'}>
-										Read More
-									</Button>
+									<Link href={l.link}>
+										<Button className={'rounded-full'}>
+											Read More
+										</Button>
+									</Link>
 								</div>
 							)}
 						</div>

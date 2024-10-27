@@ -23,14 +23,14 @@ const FederationPage = ({params: {slug}}: { params: { slug: string } }) => {
 				<Hero content={data.hero}/>
 			</div>
 			<div className={'flex flex-col-reverse lg:flex-row gap-8 lg:gap-4 xl:gap-10 mx-auto max-w-7xl px-4'}>
-				<div className={'py-12 max-w-5xl flex-1 flex flex-col gap-8'}>
-					<div className={'flex gap-6 flex-col'}>
+				<div className={'max-w-5xl flex-1 flex flex-col gap-20 lg:gap-28 my-10 lg:my-12'}>
+					{!!data.about?.length && <div className={'flex gap-6 flex-col'}>
 						{data.about.map((content) => (
 							<ParseContent text={content.text} key={content.id} mainTitleClassName={'text-xl mt-5 mb-3'} secondaryTitleClassName={'ulist-base'}/>
 						))}
-					</div>
+					</div> }
 					{data.history.description && <div>
-              <h3 className={'font-bold text-xl xl:text-2xl mb-2'}>{data.history.title}</h3>
+              <h3 className={'font-bold text-xl xl:text-2xl mb-4'}>{data.history.title}</h3>
               <div className={'bg-muted rounded-lg overflow-hidden border-l-2 border-l-secondary px-4 py-6'}>
                   <ParseContent  mainTitleClassName={'text-xl mt-5 mb-3'} text={data.history.description}/>
               </div>

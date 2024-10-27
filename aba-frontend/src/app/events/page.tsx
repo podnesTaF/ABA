@@ -9,6 +9,7 @@ import {getNewsPreviews} from "@/api/newsApi";
 import NewsPreview from "@/components/shared/NewsPreview";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
+import Section from "@/components/layout/Section";
 
 const Page = () => {
 	const {data} = useQuery({
@@ -26,15 +27,15 @@ const Page = () => {
 	return (
 		<div className={'w-full'}>
 			<Hero content={data.hero}/>
-			<div className={'py-8 rounded-3xl w-full bg-white -mt-10 relative z-10'}>
-				<div className={'px-3 mx-auto max-w-7xl flex flex-col'}>
+			<div className={'rounded-3xl w-full bg-white -mt-10 relative z-10'}>
+				<Section className={'gap-0'}>
 					{data.tournaments.map((t, i) => (
 						<TournamentSection key={t.id} content={t} index={i}/>
 					))}
-				</div>
+				</Section>
 			</div>
 			<div className={'bg-muted flex items-center justify-center z-[2] rounded-3xl relative'}>
-				<div className={'py-12 px-5 flex flex-col gap-7 max-w-7xl'}>
+				<Section>
 					<div className={'flex items-center justify-between gap-5'}>
 						<ParseContent text={data.news.sectionTitle} secondaryTitleClassName={'font-bold text-primary md:text-2xl'}
 													mainTitleClassName={'font-bold text-primary text-2xl md:text-3xl xl:text-5xl'}/>
@@ -49,7 +50,7 @@ const Page = () => {
 							<NewsPreview variant={'dark'} preview={article} key={article.id}/>
 						))}
 					</div>
-				</div>
+				</Section>
 			</div>
 		</div>
 	);
