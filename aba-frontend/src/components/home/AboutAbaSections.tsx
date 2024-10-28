@@ -16,7 +16,7 @@ const AboutAbaSections = ({content}: {content: AboutABA[]}) => {
 					<div key={section.id} className={'flex flex-col md:flex-row relative justify-center items-end'}>
 						<div className={'flex-1 pt-10 flex justify-end'}>
 							{i % 2 !== 0 ? (
-								<ContentSection textAlign={'text-right'} content={section}/>
+								<ContentSection  content={section}/>
 							) : (
 								<MediaSection media={section.media}/>
 							)}
@@ -24,7 +24,7 @@ const AboutAbaSections = ({content}: {content: AboutABA[]}) => {
 						<div className={'w-[0.5px] bg-gray-200 absolute top-0 bottom-0 right-0 md:left-1/2'}/>
 						<div className={'flex-1 w-full pt-5 flex justify-start relative'}>
 							{i % 2 === 0 ? (
-								<ContentSection textAlign={'text-left'} content={section}/>
+								<ContentSection  content={section}/>
 							) : (
 								<MediaSection media={section.media}/>
 							)}
@@ -37,7 +37,7 @@ const AboutAbaSections = ({content}: {content: AboutABA[]}) => {
 };
 
 
-const ContentSection = ({content, textAlign}: { content: AboutABA, textAlign: 'text-left' | "text-right"}) => {
+const ContentSection = ({content}: { content: AboutABA}) => {
 	return (
 		<div className={'flex flex-col gap-4 p-5 max-w-lg items-end'}>
 			<h2 className={`font-bold uppercase text-lg md:text-xl lg:text-2xl xl:text-4xl`}>
