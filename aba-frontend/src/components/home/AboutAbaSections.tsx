@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import {AboutABA} from "@/models/pages/home";
 import {Button} from "@/components/ui/button";
@@ -7,6 +9,7 @@ import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import {ParseContent} from "@/components/shared/Hero";
 import Section from "@/components/layout/Section";
+import VideoCard from "@/components/shared/VideoCard";
 
 const AboutAbaSections = ({content}: {content: AboutABA[]}) => {
 	return (
@@ -14,11 +17,11 @@ const AboutAbaSections = ({content}: {content: AboutABA[]}) => {
 			<Section>
 				{content.map((section, i) => (
 					<div key={section.id} className={'flex flex-col md:flex-row relative justify-center items-end'}>
-						<div className={'flex-1 pt-10 flex justify-end'}>
+						<div className={'flex-1 w-full pt-10 flex justify-end'}>
 							{i % 2 !== 0 ? (
 								<ContentSection  content={section}/>
 							) : (
-								<MediaSection media={section.media}/>
+								<MediaSection media={section.media} mediaUrl={section.mediaUrl}/>
 							)}
 						</div>
 						<div className={'w-[0.5px] bg-gray-200 absolute top-0 bottom-0 right-0 md:left-1/2'}/>
@@ -26,7 +29,7 @@ const AboutAbaSections = ({content}: {content: AboutABA[]}) => {
 							{i % 2 === 0 ? (
 								<ContentSection  content={section}/>
 							) : (
-								<MediaSection media={section.media}/>
+								<MediaSection media={section.media} mediaUrl={section.mediaUrl}/>
 							)}
 						</div>
 					</div>
@@ -55,9 +58,13 @@ const ContentSection = ({content}: { content: AboutABA}) => {
 	)
 }
 
-const MediaSection = ({media}: {media: Media}) => {
+const MediaSection = ({media, mediaUrl}: {media?: Media, mediaUrl?: string}) => {
 	return (
+		media ? (
 		<Image src={getImageUrl(media?.url)} alt={media?.name} width={600} height={400} className={'object-cover md:object-contain w-full md:max-h-[400px]'} />
+		) : mediaUrl ? (
+			<VideoCard videoId={mediaUrl} />
+		) : null
 	)
 }
 

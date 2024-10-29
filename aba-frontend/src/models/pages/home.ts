@@ -52,6 +52,7 @@ export interface AboutABA {
 	title: string;
 	description: string;
 	media: Media;
+	mediaUrl: string;
 	ctaButton: CTAButton;
 }
 
