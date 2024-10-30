@@ -9,6 +9,7 @@ import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import { Toaster } from "@/components/ui/sonner"
 import { Inter } from 'next/font/google'
+import SmoothScrollWrapper from "@/components/shared/SmoothScrollWrapper";
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -28,19 +29,18 @@ export default async function RootLayout({
 
   return (
     <html lang="en"  className={`${inter.className}`}>
-
     <body
       className={`antialiased`}
     >
     <Providers>
-      <HydrationBoundary state={dehydrate(queryClient)}>
-        <Header/>
-        <div className={'pt-[60px] md:pt-0'}>
-          {children}
-        </div>
-        <Footer/>
-        <Toaster/>
-      </HydrationBoundary>
+        <HydrationBoundary state={dehydrate(queryClient)}>
+            <Header />
+            <div className={'pt-[60px] md:pt-0'}>
+              {children}
+            </div>
+            <Footer/>
+            <Toaster/>
+        </HydrationBoundary>
     </Providers>
     </body>
     </html>

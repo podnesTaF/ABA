@@ -21,15 +21,15 @@ const AboutAbaSections = ({content}: {content: AboutABA[]}) => {
 							{i % 2 !== 0 ? (
 								<ContentSection  content={section}/>
 							) : (
-								<MediaSection media={section.media} mediaUrl={section.mediaUrl}/>
+								<MediaSection media={section.media} youtubeMediaId={section.youtubeMediaId}/>
 							)}
 						</div>
 						<div className={'w-[0.5px] bg-gray-200 absolute top-0 bottom-0 right-0 md:left-1/2'}/>
-						<div className={'flex-1 w-full pt-5 flex justify-start relative'}>
+						<div className={'flex-1 w-full pt-5 flex justify-start relative px-5'}>
 							{i % 2 === 0 ? (
 								<ContentSection  content={section}/>
 							) : (
-								<MediaSection media={section.media} mediaUrl={section.mediaUrl}/>
+								<MediaSection media={section.media} youtubeMediaId={section.youtubeMediaId}/>
 							)}
 						</div>
 					</div>
@@ -58,12 +58,12 @@ const ContentSection = ({content}: { content: AboutABA}) => {
 	)
 }
 
-const MediaSection = ({media, mediaUrl}: {media?: Media, mediaUrl?: string}) => {
+const MediaSection = ({media, youtubeMediaId}: {media?: Media, youtubeMediaId?: string}) => {
 	return (
 		media ? (
 		<Image src={getImageUrl(media?.url)} alt={media?.name} width={600} height={400} className={'object-cover md:object-contain w-full md:max-h-[400px]'} />
-		) : mediaUrl ? (
-			<VideoCard videoId={mediaUrl} />
+		) : youtubeMediaId ? (
+			<VideoCard videoId={youtubeMediaId} />
 		) : null
 	)
 }

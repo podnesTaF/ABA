@@ -28,6 +28,7 @@ export interface HomeHero {
 	description: string;
 	backgroundImage: Media;
 	ctaButton: CTAButton;
+	logo:Media
 }
 
 export interface AboutAB {
@@ -52,7 +53,7 @@ export interface AboutABA {
 	title: string;
 	description: string;
 	media: Media;
-	mediaUrl: string;
+	youtubeMediaId: string;
 	ctaButton: CTAButton;
 }
 

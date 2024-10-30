@@ -26,7 +26,7 @@ const VideoCard = ({videoId}: CustomVideoPlayerProps) => {
 	if (!data) return null
 	return (
 		<>
-			<div className={'secondary-gradient relative p-4 flex flex-col gap-8 overflow-hidden w-full xl:w-[440px] h-auto'}>
+			<div className={'secondary-gradient rounded-3xl relative p-4 flex flex-col gap-8 overflow-hidden w-full xl:w-[440px] h-auto'}>
 				<Image src={'/vectors/Track.png'} className={'absolute right-0 translate-x-1/2 bottom-0 translate-y-1/2'}
 							 width={300} height={240} alt={'track'}/>
 				<div className={'relative z-[1] cursor-pointer'}  onClick={openModal}>
