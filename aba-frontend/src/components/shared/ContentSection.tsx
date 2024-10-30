@@ -11,7 +11,7 @@ const ContentSection = ({content, children, containerClass, secondaryTitleClassN
 			</h4>
 			<div className={cn('flex-1', containerClass)}>
 				{content.description && (
-					<ParseContent text={content.description} mainTitleClassName={'font-bold text-xl md:text-2xl my-2'} secondaryTitleClassName={cn('text-base md:text-lg lg:text-xl mb-4 font-medium ulist-base',secondaryTitleClassName)} />
+					<ParseContent text={content.description} mainTitleClassName={'font-bold text-xl md:text-2xl my-2'} secondaryTitleClassName={cn('text-base md:text-lg mb-4 ulist-base',secondaryTitleClassName)} />
 				)}
 				{children}
 			</div>

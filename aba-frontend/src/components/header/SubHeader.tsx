@@ -2,7 +2,6 @@ import React from 'react';
 import {HeaderData} from "@/models/layout/header";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
-import LanguagePicker from "@/components/header/LanguagePicker";
 
 const SubHeader = ({data}: {data: HeaderData}) => {
 	return (
@@ -12,7 +11,7 @@ const SubHeader = ({data}: {data: HeaderData}) => {
 					<Image src={getImageUrl(link.icon.url)} alt={link.name} height={30} width={30} />
 				</a>
 			))}
-			<LanguagePicker variant={'dark'} />
+			{/*<LanguagePicker variant={'dark'} />*/}
 		</div>
 	);
 };

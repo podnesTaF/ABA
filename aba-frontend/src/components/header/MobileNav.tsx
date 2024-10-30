@@ -6,7 +6,6 @@ import {HeaderData} from "@/models/layout/header";
 import MenuItem from "@/components/header/MenuItem";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
-import LanguagePicker from "@/components/header/LanguagePicker";
 import {usePathname} from "next/navigation";
 
 const MobileNav = ({data}: {data: HeaderData}) => {
@@ -37,7 +36,7 @@ const MobileNav = ({data}: {data: HeaderData}) => {
 							</a>
 						))}
 					</div>
-					<LanguagePicker variant={'light'}/>
+					{/*<LanguagePicker variant={'light'}/>*/}
 				</div>
 			</div>
 		</>

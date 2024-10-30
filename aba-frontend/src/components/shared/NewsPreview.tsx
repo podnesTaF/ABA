@@ -11,7 +11,7 @@ const NewsPreview = ({preview, variant}: {preview: Article, variant: "light" | '
 		<Link href={'/news/' + preview.slug}>
 			<div
 				className={`rounded-lg overflow-hidden min-h-80 cursor-pointer ${variant === 'dark' ? "text-primary" : "text-white"}`}>
-				<div className={'relative flex-1 rounded-lg overflow-hidden h-64'}>
+				<div className={'relative flex-1 rounded-lg overflow-hidden h-48 md:h-64'}>
 					<Image src={getImageUrl(preview.previewImage.url)} alt={preview.previewImage.url} width={400} height={350}
 								 className={'w-full h-full object-cover hover:scale-105 transition-all duration-200'}/>
 					<div

@@ -15,6 +15,7 @@ import {Person} from "@/models/shared/person";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import Image from "next/image";
 import Link from "next/link";
+import Section from "@/components/layout/Section";
 
 const AboutPage = () => {
 	const {data} = useQuery({
@@ -35,8 +36,8 @@ const AboutPage = () => {
 			<div id={'how-we-are-different'} className={'px-5 max-w-7xl mx-auto relative py-20'}>
 				<ContentSection content={data.differences} />
 			</div>
-			<History  content={data.history} />
-			<div id={'structure'}>
+			<History content={data.history} />
+			<Section id={'structure'}>
 				<Structure content={{title: data.structure.title, items: data.structure.people.map((p) => ({id: p.id, title: p.role}))}} onChange={(p) => setActivePerson(data?.structure.people.find(person => person.id ===p.id))}>
 					{activePerson && <div className={'relative flex-1 rounded-2xl overflow-hidden'}>
 						<Image src={getImageUrl(activePerson.image.url)} alt={activePerson.image.name} height={500} width={350}
@@ -62,7 +63,7 @@ const AboutPage = () => {
 						</div>
 					</div>}
 				</Structure>
-			</div>
+			</Section>
 			<div id={'documentation'} className={"mb-[120px] mx-auto max-w-7xl px-5"}>
 				<ContentSection content={data.legal}>
 					<div className={'my-5'}>

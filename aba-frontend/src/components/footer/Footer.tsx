@@ -20,9 +20,9 @@ const Footer = () => {
 					<div className={'flex flex-col lg:flex-row gap-5 lg:gap-16'}>
 						{data?.contactDetails.map((info) => (
 							<div key={info.id}>
-								<h5 className={'uppercase text-xl mb-3 font-bold'}>{info.title}</h5>
+								<h5 className={'uppercase sm:text-md lg:text-xl mb-3 font-bold'}>{info.title}</h5>
 								{info.description ? (
-									<ParseContent text={info.description} secondaryTitleClassName={'text-white'} />
+									<ParseContent text={info.description} secondaryTitleClassName={'text-white text-base lg:text-xl'} />
 								) : (
 									<div className={'flex items-center gap-3'}>
 										{info.externalLinks.map(l => (
