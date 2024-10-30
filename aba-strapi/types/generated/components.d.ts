@@ -1,5 +1,17 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface TournamentsOverview extends Struct.ComponentSchema {
+  collectionName: 'components_tournaments_overviews';
+  info: {
+    displayName: 'Overview';
+  };
+  attributes: {
+    mainArticle: Schema.Attribute.Component<'shared.base-info-section', false>;
+    features: Schema.Attribute.Component<'shared.base-info-section', true>;
+    matters: Schema.Attribute.Component<'shared.base-info-section', true>;
+  };
+}
+
 export interface SharedTextField extends Struct.ComponentSchema {
   collectionName: 'components_shared_text_fields';
   info: {
@@ -196,15 +208,111 @@ export interface SharedBaseInfoSection extends Struct.ComponentSchema {
   };
 }
 
-export interface TournamentsOverview extends Struct.ComponentSchema {
-  collectionName: 'components_tournaments_overviews';
+export interface HomeHomePage extends Struct.ComponentSchema {
+  collectionName: 'components_home_home_pages';
   info: {
-    displayName: 'Overview';
+    displayName: 'Hero Section';
+    description: '';
   };
   attributes: {
-    mainArticle: Schema.Attribute.Component<'shared.base-info-section', false>;
-    features: Schema.Attribute.Component<'shared.base-info-section', true>;
-    matters: Schema.Attribute.Component<'shared.base-info-section', true>;
+    title: Schema.Attribute.String;
+    backgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    ctaButton: Schema.Attribute.Component<'cta.cta-text', false>;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+  };
+}
+
+export interface HomeHomeNews extends Struct.ComponentSchema {
+  collectionName: 'components_home_home_news';
+  info: {
+    displayName: 'home News';
+    description: '';
+  };
+  attributes: {
+    sectionTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    ctaButton: Schema.Attribute.Component<'cta.cta-text', false>;
+    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface HomeFederations extends Struct.ComponentSchema {
+  collectionName: 'components_home_federations';
+  info: {
+    displayName: 'Federations';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    ctaButton: Schema.Attribute.Component<'cta.cta-text', false>;
+    associationMedia: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    associationDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+  };
+}
+
+export interface HomeAbout2 extends Struct.ComponentSchema {
+  collectionName: 'components_home_about2s';
+  info: {
+    displayName: 'About2';
+    description: '';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    ctaButton: Schema.Attribute.Component<'cta.cta-text', false>;
+    youtubeMediaId: Schema.Attribute.String;
+  };
+}
+
+export interface HomeAboutAb extends Struct.ComponentSchema {
+  collectionName: 'components_home_about_abs';
+  info: {
+    displayName: 'AboutAB';
+    description: '';
+  };
+  attributes: {
+    sectionTitle: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    ctaButton: Schema.Attribute.Component<'cta.cta-text', false>;
+    sideImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    coreValues: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::core-value.core-value'
+    >;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -296,115 +404,10 @@ export interface AboutStructure extends Struct.ComponentSchema {
   };
 }
 
-export interface HomeHomePage extends Struct.ComponentSchema {
-  collectionName: 'components_home_home_pages';
-  info: {
-    displayName: 'Hero Section';
-    description: '';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    backgroundImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    ctaButton: Schema.Attribute.Component<'cta.cta-text', false>;
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-  };
-}
-
-export interface HomeHomeNews extends Struct.ComponentSchema {
-  collectionName: 'components_home_home_news';
-  info: {
-    displayName: 'home News';
-    description: '';
-  };
-  attributes: {
-    sectionTitle: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    ctaButton: Schema.Attribute.Component<'cta.cta-text', false>;
-    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-  };
-}
-
-export interface HomeFederations extends Struct.ComponentSchema {
-  collectionName: 'components_home_federations';
-  info: {
-    displayName: 'Federations';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    ctaButton: Schema.Attribute.Component<'cta.cta-text', false>;
-    associationMedia: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    associationDescription: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-  };
-}
-
-export interface HomeAbout2 extends Struct.ComponentSchema {
-  collectionName: 'components_home_about2s';
-  info: {
-    displayName: 'About2';
-  };
-  attributes: {
-    title: Schema.Attribute.String;
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    ctaButton: Schema.Attribute.Component<'cta.cta-text', false>;
-  };
-}
-
-export interface HomeAboutAb extends Struct.ComponentSchema {
-  collectionName: 'components_home_about_abs';
-  info: {
-    displayName: 'AboutAB';
-    description: '';
-  };
-  attributes: {
-    sectionTitle: Schema.Attribute.String;
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    ctaButton: Schema.Attribute.Component<'cta.cta-text', false>;
-    sideImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    coreValues: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::core-value.core-value'
-    >;
-    title: Schema.Attribute.String;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'tournaments.overview': TournamentsOverview;
       'shared.text-field': SharedTextField;
       'shared.primary-link': SharedPrimaryLink;
       'shared.location': SharedLocation;
@@ -416,18 +419,17 @@ declare module '@strapi/strapi' {
       'shared.footer': SharedFooter;
       'shared.document-section': SharedDocumentSection;
       'shared.base-info-section': SharedBaseInfoSection;
-      'tournaments.overview': TournamentsOverview;
+      'home.home-page': HomeHomePage;
+      'home.home-news': HomeHomeNews;
+      'home.federations': HomeFederations;
+      'home.about2': HomeAbout2;
+      'home.about-ab': HomeAboutAb;
       'fedirations.structure': FedirationsStructure;
       'cta.cta-text': CtaCtaText;
       'content-block.text': ContentBlockText;
       'content-block.image-block': ContentBlockImageBlock;
       'about.values': AboutValues;
       'about.structure': AboutStructure;
-      'home.home-page': HomeHomePage;
-      'home.home-news': HomeHomeNews;
-      'home.federations': HomeFederations;
-      'home.about2': HomeAbout2;
-      'home.about-ab': HomeAboutAb;
     }
   }
 }

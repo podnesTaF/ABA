@@ -1,7 +1,8 @@
 {
   "collectionName": "components_home_about2s",
   "info": {
-    "displayName": "About2"
+    "displayName": "About2",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -16,19 +17,23 @@
       "customField": "plugin::ckeditor5.CKEditor"
     },
     "media": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "ctaButton": {
       "type": "component",
       "repeatable": false,
       "component": "cta.cta-text"
+    },
+    "youtubeMediaId": {
+      "type": "string"
     }
   }
 }
