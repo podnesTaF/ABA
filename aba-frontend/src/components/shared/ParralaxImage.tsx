@@ -17,7 +17,7 @@ export const ParallaxImage: React.FC<ParallaxImageProps> = ({
 																															alt,
 																															width,
 																															height,
-																															scrollSpeed = 0.1,
+																															scrollSpeed = 0.2,
 																															className = '',
 																														}) => {
 	const imgRef = useRef<HTMLDivElement | null>(null);

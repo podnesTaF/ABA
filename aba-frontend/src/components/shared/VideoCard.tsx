@@ -1,6 +1,6 @@
 'use client'
 import React, {useState} from 'react';
-import {getVideoDetails, VideoData} from "@/api/homeApi";
+import {getVideoDetails} from "@/api/homeApi";
 import {useQuery} from "@tanstack/react-query";
 import Image from "next/image";
 import {PlayIcon, X} from "lucide-react";

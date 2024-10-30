@@ -1,4 +1,3 @@
-import {VideoData} from "@/api/homeApi";
 import axios from "axios";
 import { type NextRequest } from 'next/server'
 
