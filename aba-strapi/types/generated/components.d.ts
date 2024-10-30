@@ -227,6 +227,7 @@ export interface HomeHomePage extends Struct.ComponentSchema {
           preset: 'default';
         }
       >;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -316,23 +317,6 @@ export interface HomeAboutAb extends Struct.ComponentSchema {
   };
 }
 
-export interface FedirationsStructure extends Struct.ComponentSchema {
-  collectionName: 'components_fedirations_structures';
-  info: {
-    displayName: 'Structure';
-  };
-  attributes: {
-    title: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    people: Schema.Attribute.Relation<'oneToMany', 'api::person.person'>;
-  };
-}
-
 export interface CtaCtaText extends Struct.ComponentSchema {
   collectionName: 'components_cta_cta_texts';
   info: {
@@ -404,6 +388,23 @@ export interface AboutStructure extends Struct.ComponentSchema {
   };
 }
 
+export interface FedirationsStructure extends Struct.ComponentSchema {
+  collectionName: 'components_fedirations_structures';
+  info: {
+    displayName: 'Structure';
+  };
+  attributes: {
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    people: Schema.Attribute.Relation<'oneToMany', 'api::person.person'>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -424,12 +425,12 @@ declare module '@strapi/strapi' {
       'home.federations': HomeFederations;
       'home.about2': HomeAbout2;
       'home.about-ab': HomeAboutAb;
-      'fedirations.structure': FedirationsStructure;
       'cta.cta-text': CtaCtaText;
       'content-block.text': ContentBlockText;
       'content-block.image-block': ContentBlockImageBlock;
       'about.values': AboutValues;
       'about.structure': AboutStructure;
+      'fedirations.structure': FedirationsStructure;
     }
   }
 }
