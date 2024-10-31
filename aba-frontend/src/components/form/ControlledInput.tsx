@@ -22,7 +22,7 @@ const ControlledInput = ({label, icon, placeholder, onChange, value}: Controlled
 						placeholder={placeholder}
 						value={value}
 						onChange={(e) => onChange(e.target.value)}
-						className={"bg-white rounded-full py-4 lg:py-5 px-5"}
+						className={"bg-white rounded-full py-5 lg:py-5 px-5"}
 					/>
 					<div className={'absolute right-3 top-1/2 -translate-y-1/2'}>
 						{icon}
