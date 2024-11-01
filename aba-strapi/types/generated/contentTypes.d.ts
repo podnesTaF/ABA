@@ -507,6 +507,9 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     legal: Schema.Attribute.Component<'shared.document-section', false>;
     hero: Schema.Attribute.Component<'shared.hero', false>;
     contact: Schema.Attribute.Component<'shared.form', false>;
+    about: Schema.Attribute.DynamicZone<
+      ['content-block.text', 'content-block.image-block']
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -1010,6 +1013,9 @@ export interface ApiRaceRace extends Struct.CollectionTypeSchema {
     categories: Schema.Attribute.Component<'shared.base-info-section', true>;
     ranking: Schema.Attribute.Component<'shared.base-info-section', false>;
     sequence: Schema.Attribute.Integer;
+    about: Schema.Attribute.DynamicZone<
+      ['content-block.text', 'content-block.image-block']
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

@@ -42,6 +42,13 @@
     },
     "sequence": {
       "type": "integer"
+    },
+    "about": {
+      "type": "dynamiczone",
+      "components": [
+        "content-block.text",
+        "content-block.image-block"
+      ]
     }
   }
 }

@@ -57,6 +57,13 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.form"
+    },
+    "about": {
+      "type": "dynamiczone",
+      "components": [
+        "content-block.text",
+        "content-block.image-block"
+      ]
     }
   }
 }
