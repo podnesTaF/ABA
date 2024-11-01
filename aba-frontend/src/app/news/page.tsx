@@ -45,7 +45,7 @@ const NewsPage = () => {
 											</div>
 										))}
 									</div>
-						<div className={'w-full xl:min-w-80'}>
+						<div className={'w-full md:w-auto xl:min-w-80'}>
 							<ControlledInput icon={
 								<SearchIcon className={'text-primary'} size={24}/>
 							} placeholder={'Search'} onChange={(t) => setTitle(t)} value={title}/>

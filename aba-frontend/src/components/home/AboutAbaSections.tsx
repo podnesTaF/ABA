@@ -16,8 +16,8 @@ const AboutAbaSections = ({content}: {content: AboutABA[]}) => {
 		<div className={'w-full justify-center items-center px-4'}>
 			<Section>
 				{content.map((section, i) => (
-					<div key={section.id} className={'flex flex-col md:flex-row relative justify-center items-end'}>
-						<div className={'flex-1 w-full pt-10 flex justify-end'}>
+					<div key={section.id} className={'flex flex-col md:flex-row relative justify-center items-center'}>
+						<div className={'flex-1 w-full pt-10 flex justify-end px-5'}>
 							{i % 2 !== 0 ? (
 								<ContentSection  content={section}/>
 							) : (
@@ -42,7 +42,7 @@ const AboutAbaSections = ({content}: {content: AboutABA[]}) => {
 
 const ContentSection = ({content}: { content: AboutABA}) => {
 	return (
-		<div className={'flex flex-col gap-4 p-5 max-w-lg items-end'}>
+		<div className={'flex flex-col gap-4 max-w-lg items-end'}>
 			<h2 className={`font-bold uppercase text-lg md:text-xl lg:text-2xl xl:text-4xl`}>
 				{content.title}
 			</h2>

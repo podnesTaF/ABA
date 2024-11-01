@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import React from "react";
 import Providers from "@/lib/providers/Providers";
@@ -13,9 +12,9 @@ import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: "Ace Battle Association",
-  description: "The official website",
+export const metadata = {
+  title: "Ace Battle Association - Team Running Events & Dynamic Competitions",
+  description: "Ace Battle Association initiates innovative team running events and competitive leagues globally. Explore the dynamic world of structured team races, strategic gameplay, and inclusive leagues for all levels, fostering a new era in team running sports.",
 };
 
 export default async function RootLayout({
