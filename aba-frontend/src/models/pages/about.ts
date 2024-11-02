@@ -5,6 +5,7 @@ import {Media} from "@/models/shared/media";
 import {Person} from "@/models/shared/person";
 import {Meta} from "@/models/shared/meta";
 import {Form} from "@/models/shared/form";
+import {ContentBlockMedia, ContentBlockText} from "@/models/shared/blocks";
 
 export type AboutResponse = {
 	data: AboutPage,
@@ -21,6 +22,7 @@ export type AboutPage = {
 		publishedAt: string;
 		locale: string | null;
 		hero: Hero;
+		about: (ContentBlockText | ContentBlockMedia)[]
 		missions: InfoSection[];
 		values: SectionValues;
 		differences: InfoSection;
