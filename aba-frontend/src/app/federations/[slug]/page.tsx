@@ -32,7 +32,7 @@ const FederationPage = ({params: {slug}}: { params: { slug: string } }) => {
 					{data.history.description && <div>
               <h3 className={'font-bold text-xl xl:text-2xl mb-4'}>{data.history.title}</h3>
               <div className={'bg-muted rounded-lg overflow-hidden border-l-2 border-l-secondary px-4 py-6'}>
-                  <ParseContent  mainTitleClassName={'text-xl mt-5 mb-3'} text={data.history.description}/>
+                  <ParseContent  mainTitleClassName={'text-xl mt-5 mb-3'} text={data.history.description} />
               </div>
           </div>}
 					<div>

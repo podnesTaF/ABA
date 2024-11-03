@@ -33,11 +33,11 @@ const FederationsPage = () => {
 			<Hero content={pageData?.hero} />
 			<div className={'-translate-y-10 rounded-3xl bg-white'}>
 				<Section className={'relative'}>
-						<ContentSection containerClass={'flex gap-4 flex-col lg:flex-row items-start'} content={pageData.aboutABA} secondaryTitleClassName={'flex flex-row-reverse items-center gap-2'}>
+						<ContentSection containerClass={'flex gap-4 flex-col lg:flex-row items-start'} content={pageData.aboutABA} >
 							{pageData.aboutABA.media?.url && <Image src={pageData.aboutABA.media.url} alt={pageData.aboutABA.media.name} width={400} height={350} /> }
 						</ContentSection>
 					<div className={'flex flex-col lg:flex-row gap-5 pt-20 lg:pt-24'}>
-						<ParseContent text={pageData.federationHead.description!} mainTitleClassName={'font-bold text-2xl my-2'} secondaryTitleClassName={'text-xl font-medium ulist-base'} />
+						<ParseContent text={pageData.federationHead.description!} mainTitleClassName={'font-bold text-2xl my-2'} secondaryTitleClassName={'text-xl font-medium ulist-base max-w-[300px]'} />
 						<div className={"flex flex-col gap-12 flex-1 min-h-96"}>
 							<div className={'flex justify-end'}>
 								<div className={'max-w-sm w-full'}>

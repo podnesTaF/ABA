@@ -28,10 +28,12 @@ const Federations = ({content, federations}: {content: FederationsHome, federati
 							<FederationCard key={f.id} federation={f} />
 						))}
 					</div>
-					<div className={'bg-primary flex-1 h-auto p-5 rounded-3xl flex flex-col items-center justify-center gap-5'}>
-						<Image  src={getImageUrl(content.associationMedia.url)} alt={content.associationMedia.name} width={300} height={110} className={'max-w-48 md:max-w-none object-contain object-center'} />
-						<ParseContent text={content.associationDescription} secondaryTitleClassName={'text-white text-sm sm:text-base 	'} />
-						<Button variant={'light'}>
+					<div className={'dark-gradient flex-1 h-auto p-5 rounded-3xl flex flex-col items-center justify-center gap-5 relative overflow-hidden'}>
+						<Image src={'/vectors/black-track.png'} alt={'stadium'} width={250} height={300} className={'w-64 h-auto absolute -top-72 left-5 z-0'} />
+						<Image src={'/vectors/black-track.png'} alt={'stadium'} width={250} height={300} className={'w-64 h-auto absolute -bottom-72 right-5 z-0'} />
+						<Image  src={getImageUrl(content.associationMedia.url)} alt={content.associationMedia.name} width={300} height={110} className={'max-w-48 md:max-w-none object-contain object-center z-[1]'} />
+						<ParseContent text={content.associationDescription} secondaryTitleClassName={'text-white text-sm font-medium leading-[160%] sm:text-base z-[1]'} />
+						<Button variant={'light'} className={'z-[1]'}>
 							<Link href={content.ctaButton.link} >
 								{content.ctaButton.title}
 							</Link>

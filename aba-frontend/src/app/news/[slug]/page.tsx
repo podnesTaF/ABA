@@ -47,7 +47,7 @@ const ArticlePage = ({params: {slug}}: {params: {slug: string}}) => {
 						{data.title}
 					</h1>
 				</div>
-				<div className={'flex-1 max-w-3xl flex flex-col gap-12'}>
+				<div className={'w-full max-w-3xl flex flex-col gap-12'}>
 					<Image src={getImageUrl(data.previewImage.url)} alt={data.previewImage.name} width={780} height={500} className={'w-full h-auto object-contain'} />
 					{data.content.map((c) => (
 						<DynamicContent item={c} key={c.id} />

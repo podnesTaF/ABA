@@ -193,3 +193,7 @@ button:hover .icon {
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
+
+.dark-gradient {
+  background: linear-gradient(36.23deg, #000000 5.17%, #343131 93.87%);
+}
