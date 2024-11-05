@@ -14,7 +14,7 @@ const HomeHero = ({content}: {content: HomeHeroContent}) => {
 			<div className={"h-[700px] 2xl:h-[680px] mx-auto py-24 px-5 flex items-center flex-col heroElem z-[1] bg-[url('/vectors/transparent-track.svg')] bg-no-repeat bg-center bg-cover md:bg-contain"}>
 				<div className={'flex-1 flex flex-col gap-5 xl:gap-8 items-center justify-center max-w-5xl mx-0 lg:mx-6 xl:mx-12 '}>
 					<Image src={getImageUrl(content.logo.url)} alt={'track'} width={520} height={240} className={'object-cover object-center h-auto'} />
-					{content.title && <h1 className={'text-5xl xl:text-5xl font-extrabold text-center uppercase text-white gradient-title'}>
+					{content.title && <h1 className={'text-2xl md:text-4xl xl:text-5xl font-extrabold text-center uppercase text-white gradient-title'}>
 						{content.title}
 					</h1>}
 					{content.description && <ParseContent text={content.description}
