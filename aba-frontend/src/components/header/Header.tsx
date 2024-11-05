@@ -12,7 +12,6 @@ import Link from "next/link";
 import { motion, useAnimation } from 'framer-motion';
 
 const Header = () => {
-	const [isScrollingDown, setIsScrollingDown] = useState(false);
 	const [lastScrollTop, setLastScrollTop] = useState(0); // Track previous scroll position
 	const [isLogoVisible, setIsLogoVisible] = useState(false); // Track large logo visibility
 	const { data } = useQuery({
@@ -35,14 +34,12 @@ const Header = () => {
 
 			// Check scroll direction for applying blur
 			if (scrollTop > lastScrollTop) {
-				setIsScrollingDown(true);
 				controls.start({
 					backdropFilter: 'blur(3px)',
 					backgroundColor: 'rgba(0, 0, 0, 0.2)',
 					transition: { duration: 0.1 },
 				});
 			} else {
-				setIsScrollingDown(false);
 				controls.start({
 					backdropFilter: 'blur(0px)',
 					backgroundColor: '#1f1d20',
