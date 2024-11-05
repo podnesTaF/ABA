@@ -3,7 +3,6 @@ import {InfoSection} from "@/models/shared/infoSection";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
 import {ParseContent} from "@/components/shared/Hero";
-import Section from "@/components/layout/Section";
 
 const History = ({content}: { content: InfoSection }) => {
 	return (
