@@ -1116,6 +1116,35 @@ export interface ApiRegionRegion extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiRoadmapRoadmap extends Struct.SingleTypeSchema {
+  collectionName: 'roadmaps';
+  info: {
+    singularName: 'roadmap';
+    pluralName: 'roadmaps';
+    displayName: 'Roadmap';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    hero: Schema.Attribute.Component<'shared.hero', false>;
+    milestones: Schema.Attribute.Component<'shared.list', true>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::roadmap.roadmap'
+    >;
+  };
+}
+
 export interface ApiTournamentTournament extends Struct.CollectionTypeSchema {
   collectionName: 'tournaments';
   info: {
@@ -1574,6 +1603,7 @@ declare module '@strapi/strapi' {
       'api::race-page.race-page': ApiRacePageRacePage;
       'api::races-page.races-page': ApiRacesPageRacesPage;
       'api::region.region': ApiRegionRegion;
+      'api::roadmap.roadmap': ApiRoadmapRoadmap;
       'api::tournament.tournament': ApiTournamentTournament;
       'api::tournaments-page.tournaments-page': ApiTournamentsPageTournamentsPage;
       'admin::permission': AdminPermission;
