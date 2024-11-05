@@ -10,7 +10,7 @@ const History = ({content}: { content: InfoSection }) => {
 			<Image src={getImageUrl(content.media.url)} alt={content.media.name} height={460} width={1440}
 						 className={'w-full object-cover max-h-[600px] object-center rounded-[30px] z-[0]'}/>
 			<div
-				className={'dark-gradient shadow-lg w-full rounded-[30px] overflow-hidden relative z-10 max-w-7xl mx-auto -top-12 md:-top-32 p-8i md:p-12 lg:p-20'}>
+				className={'dark-gradient shadow-lg w-full rounded-[30px] overflow-hidden relative z-10 max-w-7xl mx-auto -top-12 md:-top-32 p-8 md:p-12 lg:p-20'}>
 				<Image src={'/vectors/black-track.svg'} alt={'stadium'} width={600} height={400}
 								 className={'absolute max-w-md h-auto left-12 -top-96 -z-[1]'}/>
 				<Image src={'/vectors/black-track.svg'} alt={'stadium'} width={600} height={400}

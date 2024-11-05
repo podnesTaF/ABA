@@ -32,7 +32,7 @@ const Federations = ({content, federations}: {content: FederationsHome, federati
 						<Image src={'/vectors/black-track.png'} alt={'stadium'} width={250} height={300} className={'w-64 h-auto absolute -top-72 left-5 z-0'} />
 						<Image src={'/vectors/black-track.png'} alt={'stadium'} width={250} height={300} className={'w-64 h-auto absolute -bottom-72 right-5 z-0'} />
 						<Image  src={getImageUrl(content.associationMedia.url)} alt={content.associationMedia.name} width={300} height={110} className={'max-w-48 md:max-w-none object-contain object-center z-[1]'} />
-						<ParseContent text={content.associationDescription} secondaryTitleClassName={'text-white text-sm font-medium leading-[160%] sm:text-base z-[1]'} />
+						<ParseContent text={content.associationDescription} secondaryTitleClassName={'text-white text-sm font-medium leading-[160%] sm:text-base z-[1] relative'} />
 						<Button variant={'light'} className={'z-[1]'}>
 							<Link href={content.ctaButton.link} >
 								{content.ctaButton.title}

@@ -37,7 +37,7 @@ const NavItem = ({link, isActive, isLastWithItems}: NavItemProps) => {
 
 
 	return (
-		<div className="relative group"
+		<div className="relative group bg-transparent"
 				 onMouseEnter={handleMouseEnter}
 				 onMouseLeave={handleMouseLeave}
 		>
