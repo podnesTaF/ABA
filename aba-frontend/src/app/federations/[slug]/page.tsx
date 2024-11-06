@@ -29,38 +29,40 @@ const FederationPage = ({params: {slug}}: { params: { slug: string } }) => {
 							<ParseContent text={content.text} key={content.id} mainTitleClassName={'text-xl mt-5 mb-3'} secondaryTitleClassName={'ulist-base'}/>
 						))}
 					</div> }
-					{data.history.description && <div>
+					{data.history?.description && <div>
               <h3 className={'font-bold text-xl xl:text-2xl mb-4'}>{data.history.title}</h3>
               <div className={'bg-muted rounded-lg overflow-hidden border-l-2 border-l-secondary px-4 py-6'}>
                   <ParseContent  mainTitleClassName={'text-xl mt-5 mb-3'} text={data.history.description} />
               </div>
           </div>}
-					<div>
-						<ParseContent text={data.structure.title} mainTitleClassName={'font-bold text-xl xl:text-2xl mb-6'}/>
-						<div className={'flex flex-wrap gap-8 justify-between'}>
-							{data.structure.people.map(p => (
-								<div key={p.id}>
-									<h4 className={'font-bold text-2xl mb-5'}>
-										{p.fullName}
-									</h4>
-									<p>{p.role}</p>
-								</div>
-							))}
+					{data.structure && <div>
+              <ParseContent text={data.structure.title} mainTitleClassName={'font-bold text-xl xl:text-2xl mb-6'}/>
+              <div className={'flex flex-wrap gap-8 justify-between'}>
+								{data.structure.people.map(p => (
+									<div key={p.id}>
+										<h4 className={'font-bold text-2xl mb-5'}>
+											{p.fullName}
+										</h4>
+										<p>{p.role}</p>
+									</div>
+								))}
+              </div>
+          </div>}
+					{data.documentSection && (
+						<div id={'documentation'}>
+							<h3 className={'font-bold text-xl xl:text-2xl mb-2'}>{data.documentSection.title}</h3>
+							<div className={'my-5'}>
+								{data.documentSection.documents.map((
+									d
+								) => (
+									<DocumentView doc={d} key={d.id}/>
+								))}
+							</div>
 						</div>
-					</div>
-					<div id={'documentation'}>
-						<h3 className={'font-bold text-xl xl:text-2xl mb-2'}>{data.documentSection.title}</h3>
-						<div className={'my-5'}>
-							{data.documentSection.documents.map((
-								d
-							) => (
-								<DocumentView doc={d} key={d.id}/>
-							))}
-						</div>
-					</div>
+					)}
 				</div>
 				<div className={'z-[5] lg:sticky mt-5 lg:mt-0 lg:-translate-y-20 lg:top-40 h-fit'}>
-				<FederationInfoCard details={data.details} logo={data.logo}/>
+					<FederationInfoCard details={data.details} logo={data.logo}/>
 				</div>
 			</div>
 		</>

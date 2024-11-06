@@ -11,6 +11,8 @@ export type Person = {
 	publishedAt: string;
 	locale: string | null;
 	image: Media;
+	cite: string;
+	description: string;
 	links: Link[];
 	localizations: any[];
 };

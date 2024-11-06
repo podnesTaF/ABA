@@ -32,5 +32,6 @@ export interface ExternalLink {
     publishedAt: string;
     locale: string | null;
     icon: Media;
+    lightIcon:Media;
     localizations: any[];
 }

@@ -30,8 +30,9 @@ export type Federation = {
 	region: Region;
 	details: InfoField[];
 	logo: Media;
-	about: ContentBlockText[];
-	history: InfoSection;
-	structure: Structure;
-	documentSection: Legal;
+	about?: ContentBlockText[];
+	history?: InfoSection;
+	structure?: Structure;
+	documentSection?: Legal;
+	active: boolean;
 };

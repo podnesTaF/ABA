@@ -15,7 +15,7 @@ export const getHeader = async (): Promise<HeaderData> => {
 }
 
 export const getFooter = async (): Promise<Footer> => {
-    const {data} = await api.get<FooterResponse>(`/footer?populate[contactDetails][populate][externalLinks][populate]=icon&populate[links][populate]=*`);
+    const {data} = await api.get<FooterResponse>(`/footer?populate[contactDetails][populate][externalLinks][populate]=*&populate[links][populate]=*`);
 
     return data.data
 }

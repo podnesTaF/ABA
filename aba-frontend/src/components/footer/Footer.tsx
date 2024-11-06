@@ -27,7 +27,7 @@ const Footer = () => {
 									<div className={'flex items-center gap-3'}>
 										{info.externalLinks.map(l => (
 											<Link href={l.link} key={l.id} target={"_blank"}>
-												<Image src={getImageUrl(l.icon.url)} alt={l.name} width={30} height={30} className={'text-white'} />
+												<Image src={getImageUrl(l.lightIcon?.url)} alt={l.name} width={30} height={30} className={'text-white hover:opacity-80'} />
 											</Link>
 										))}
 									</div>

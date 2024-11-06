@@ -2,6 +2,8 @@ import React from 'react';
 import {Federation} from "@/models/shared/federation";
 import Image from "next/image";
 import {getImageUrl} from "@/lib/utils/imageHelpers";
+import {Button} from "@/components/ui/button";
+import Link from "next/link";
 
 const FederationCard = ({federation}: {federation: Federation}) => {
 	return (
@@ -16,14 +18,15 @@ const FederationCard = ({federation}: {federation: Federation}) => {
 						{federation.name}
 					</h4>
 				</div>
-				<h4 className={'text-primary font-semibold text-lg'}>
+				{!federation.active ? <h4 className={'text-primary font-semibold text-lg'}>
 					Soon...
-				</h4>
-				{/*<Button className={'bg-primary text-white flex-[1]'}>*/}
-				{/*	<Link href={'/federations/' + federation.slug}>*/}
-				{/*		Details*/}
-				{/*	</Link>*/}
-				{/*</Button>*/}
+				</h4> : (
+					<Button className={'bg-primary text-white flex-[1]'}>
+						<Link href={'/federations/' + federation.slug}>
+							Details
+						</Link>
+					</Button>
+				)}
 			</div>
 		</div>
 	);

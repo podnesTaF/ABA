@@ -33,17 +33,17 @@ const Header = () => {
 			}
 
 			// Check scroll direction for applying blur
-			if (scrollTop > lastScrollTop) {
+			if (scrollTop > lastScrollTop && scrollTop > 100) {
 				controls.start({
 					backdropFilter: 'blur(3px)',
 					backgroundColor: 'rgba(0, 0, 0, 0.2)',
-					transition: { duration: 0.1 },
+					transition: { duration: 0},
 				});
 			} else {
 				controls.start({
 					backdropFilter: 'blur(0px)',
 					backgroundColor: '#1f1d20',
-					transition: { duration: 0.05 },
+					transition: { duration: 0 },
 				});
 			}
 
