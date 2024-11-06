@@ -673,6 +673,7 @@ export interface ApiExternalLinkExternalLink
     singularName: 'external-link';
     pluralName: 'external-links';
     displayName: 'externalLink';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -681,6 +682,7 @@ export interface ApiExternalLinkExternalLink
     name: Schema.Attribute.String;
     link: Schema.Attribute.String;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    lightIcon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -723,6 +725,7 @@ export interface ApiFederationFederation extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     details: Schema.Attribute.Component<'shared.info-field', true>;
     region: Schema.Attribute.Relation<'oneToOne', 'api::region.region'>;
+    active: Schema.Attribute.Boolean;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -979,6 +982,14 @@ export interface ApiPersonPerson extends Struct.CollectionTypeSchema {
     role: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     links: Schema.Attribute.Component<'shared.link', true>;
+    cite: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

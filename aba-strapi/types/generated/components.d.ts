@@ -238,23 +238,6 @@ export interface SharedBaseInfoSection extends Struct.ComponentSchema {
   };
 }
 
-export interface FedirationsStructure extends Struct.ComponentSchema {
-  collectionName: 'components_fedirations_structures';
-  info: {
-    displayName: 'Structure';
-  };
-  attributes: {
-    title: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'default';
-        }
-      >;
-    people: Schema.Attribute.Relation<'oneToMany', 'api::person.person'>;
-  };
-}
-
 export interface HomeHomePage extends Struct.ComponentSchema {
   collectionName: 'components_home_home_pages';
   info: {
@@ -364,6 +347,35 @@ export interface HomeAboutAb extends Struct.ComponentSchema {
   };
 }
 
+export interface CtaCtaText extends Struct.ComponentSchema {
+  collectionName: 'components_cta_cta_texts';
+  info: {
+    displayName: 'CTA Button';
+    description: '';
+  };
+  attributes: {
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface FedirationsStructure extends Struct.ComponentSchema {
+  collectionName: 'components_fedirations_structures';
+  info: {
+    displayName: 'Structure';
+  };
+  attributes: {
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
+    people: Schema.Attribute.Relation<'oneToMany', 'api::person.person'>;
+  };
+}
+
 export interface ContentBlockText extends Struct.ComponentSchema {
   collectionName: 'components_content_block_texts';
   info: {
@@ -389,18 +401,6 @@ export interface ContentBlockImageBlock extends Struct.ComponentSchema {
   };
   attributes: {
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-  };
-}
-
-export interface CtaCtaText extends Struct.ComponentSchema {
-  collectionName: 'components_cta_cta_texts';
-  info: {
-    displayName: 'CTA Button';
-    description: '';
-  };
-  attributes: {
-    link: Schema.Attribute.String;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -452,15 +452,15 @@ declare module '@strapi/strapi' {
       'shared.footer': SharedFooter;
       'shared.document-section': SharedDocumentSection;
       'shared.base-info-section': SharedBaseInfoSection;
-      'fedirations.structure': FedirationsStructure;
       'home.home-page': HomeHomePage;
       'home.home-news': HomeHomeNews;
       'home.federations': HomeFederations;
       'home.about2': HomeAbout2;
       'home.about-ab': HomeAboutAb;
+      'cta.cta-text': CtaCtaText;
+      'fedirations.structure': FedirationsStructure;
       'content-block.text': ContentBlockText;
       'content-block.image-block': ContentBlockImageBlock;
-      'cta.cta-text': CtaCtaText;
       'about.values': AboutValues;
       'about.structure': AboutStructure;
     }

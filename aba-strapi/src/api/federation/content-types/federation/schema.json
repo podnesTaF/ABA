@@ -65,6 +65,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::region.region"
+    },
+    "active": {
+      "type": "boolean"
     }
   }
 }
