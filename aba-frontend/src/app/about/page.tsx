@@ -34,7 +34,7 @@ const AboutPage = () => {
 			<Hero content={data.hero}/>
 			<Mission content={data.missions}/>
 			<Values content={data.values}/>
-			<div id={'how-we-are-different'} className={'px-5 max-w-7xl mx-auto relative'}>
+			<div className={'px-5 max-w-7xl mx-auto relative'}>
 				<ContentSection content={{title: ""}}>
 					{data.about.map((c) => (
 						<DynamicContent item={c} key={c.id}/>

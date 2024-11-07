@@ -10,6 +10,8 @@ export const getNewsPreviews = async ({count, name, category}: {count?: number, 
 		queryParams.push(`pagination[pageSize]=${count}`);
 	}
 
+	queryParams.push(`sort[0]=createdAt:desc`);
+
 	// Add the name filter for title or excerpt if provided
 	if (name) {
 		queryParams.push(`filters[$or][0][title][$contains]=${encodeURIComponent(name)}`);
@@ -30,12 +32,12 @@ export const getNewsPreviews = async ({count, name, category}: {count?: number, 
 };
 
 export const getNewsPage = async (): Promise<TNewsPage> => {
-	const {data} = await api.get<{data: TNewsPage}>('/news-page?populate[hero][populate][backgroundImage][populate]&populate[hero][populate][articles][populate]=*&populate[categories][populate]')
+	const {data} = await api.get<{data: TNewsPage}>('/news-page?populate[hero][populate][backgroundImage][populate]&populate[hero][populate][articles][populate]=*&populate[categories][populate]&sort[0]=createdAt:desc')
 	return data.data
 }
 
 export const getArticle = async (slug: string): Promise<Article> => {
-	const {data} = await api.get<{data: Article[]}>(`/articles?filters[slug][$eq]=${slug}&populate[previewImage][populate]=*&populate[newsCategories][populate]&populate[content][on][content-block.text]=&populate[content][on][content-block.image-block][populate][image][populate]=*`)
+	const {data} = await api.get<{data: Article[]}>(`/articles?filters[slug][$eq]=${slug}&populate[previewImage][populate]=*&populate[newsCategories][populate]&populate[content][on][content-block.text]=&populate[content][on][content-block.image-block][populate][image][populate]=*&sort[0]=createdAt:desc`)
 
 	return data.data[0]
 }
