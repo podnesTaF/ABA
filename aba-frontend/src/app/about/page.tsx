@@ -49,9 +49,9 @@ const AboutPage = () => {
 				<Structure
 					content={{title: data.structure.title, items: data.structure.people.map((p) => ({id: p.id, title: p.role}))}}
 					onChange={(p) => setActivePerson(data?.structure.people.find(person => person.id === p.id))}>
-					{activePerson && <div className={'relative flex-1 rounded-2xl overflow-hidden'}>
+					{activePerson && <div className={'relative h-[500px] w-auto rounded-2xl overflow-hidden'}>
               <Image src={getImageUrl(activePerson.image.url)} alt={activePerson.image.name} height={500} width={350}
-                     className={'w-full h-auto'}/>
+                     className={'w-auto h-full object-cover'}/>
               <div
                   className={'absolute bottom-0 left-0 w-full flex sm:flex-col gap-3 justify-between items-center md:items-start backdrop-blur-lg p-3 text-white font-bold'}>
                   <div>
@@ -65,9 +65,11 @@ const AboutPage = () => {
                   <div className={'flex gap-3 items-center'}>
 										{activePerson.links.map(l => (
 											<div key={l.id}>
-												<Link href={l.link} target={"_blank"}>
-													<Image src={getImageUrl(l.icon.url)} alt={l.icon.name} width={40} height={40}/>
-												</Link>
+												{l.icon && (
+													<Link href={l.link} target={"_blank"}>
+														<Image src={getImageUrl(l.icon.url)} alt={l.icon.name} width={40} height={40}/>
+													</Link>
+												)}
 											</div>
 										))}
                   </div>
