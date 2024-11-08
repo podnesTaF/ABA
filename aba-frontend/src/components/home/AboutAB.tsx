@@ -19,7 +19,7 @@ const AboutAb = ({content}: {content: AboutAB}) => {
 						<div>
 							<ParseContent text={content.description} mainTitleClassName={"text-2xl sm:text-3xl lg:text-4xl 2xl:text-5xl font-bold mb-4 leading-[160%]"} secondaryTitleClassName={'text-lg md:text-xl xl:text-xl leading-[160%]'} />
 						</div>
-						{content.ctaButton && <div>
+						{content.ctaButton?.link && <div>
 							<Button className={'text-white bg-secondary hover:bg-secondary/80 rounded-full'}>
 								<Link href={content.ctaButton.link}>
 									{content.ctaButton.title}
