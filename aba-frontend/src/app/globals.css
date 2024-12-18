@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -76,8 +75,32 @@
     @apply bg-background text-foreground overflow-x-hidden;
   }
 
-  h1,h2,h3,h4,h5,h6,p {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
     line-height: 160%;
+  }
+  h1 {
+    @apply text-4xl md:text-5xl font-bold tracking-tight my-6;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl font-semibold tracking-tight my-5;
+  }
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold my-4;
+  }
+  h4 {
+    @apply text-xl md:text-2xl font-medium my-3;
+  }
+  h5 {
+    @apply text-lg md:text-xl font-medium my-2;
+  }
+  h6 {
+    @apply text-base md:text-lg font-medium my-2;
   }
 }
 
@@ -108,12 +131,10 @@ li.listitem-base {
   @apply mb-2; /* Add some margin between list items */
 }
 
-
 ol.olist-base {
   list-style-type: decimal;
   padding-left: 10px;
 }
-
 
 /* globals.css */
 #nprogress {
@@ -130,18 +151,25 @@ ol.olist-base {
   height: 2px;
 }
 
-
 button:hover .icon {
- transform: translateX(0.25rem);
+  transform: translateX(0.25rem);
 }
 
 .secondary-gradient {
-  background: rgb(235,57,49);
-  background: linear-gradient(-147deg, rgba(235,57,49,1) 0%, rgba(255,92,22,1) 100%);
+  background: rgb(235, 57, 49);
+  background: linear-gradient(
+    -147deg,
+    rgba(235, 57, 49, 1) 0%,
+    rgba(255, 92, 22, 1) 100%
+  );
 }
 
 .gradient-title {
-  background: linear-gradient(-180deg, rgba(235,57,49,1) 0%, rgba(255,92,22,1) 100%);
+  background: linear-gradient(
+    -180deg,
+    rgba(235, 57, 49, 1) 0%,
+    rgba(255, 92, 22, 1) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -197,3 +225,4 @@ button:hover .icon {
 .dark-gradient {
   background: linear-gradient(36.23deg, #000000 5.17%, #343131 93.87%);
 }
+
