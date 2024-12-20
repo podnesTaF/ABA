@@ -71,6 +71,34 @@ export const ParseContent = ({
             // Return a self-closing tag for <br>
             return <br />;
 
+          case "img":
+            // Correctly handle <img> as a self-closing tag with attributes
+            return (
+              <img
+                src={domNode.attribs.src}
+                alt={domNode.attribs.alt || ""}
+                className={domNode.attribs.class || ""}
+                style={
+                  domNode.attribs.style
+                    ? domNode.attribs.style
+                        .split(";")
+                        .reduce((styles: any, rule: string) => {
+                          const [key, value] = rule
+                            .split(":")
+                            .map((str) => str.trim());
+                          if (key && value) {
+                            styles[
+                              key.replace(/-./g, (char) =>
+                                char[1].toUpperCase()
+                              )
+                            ] = value;
+                          }
+                          return styles;
+                        }, {})
+                    : undefined
+                }
+              />
+            );
           default:
             return (
               <Tag className={secondaryTitleClassName}>
