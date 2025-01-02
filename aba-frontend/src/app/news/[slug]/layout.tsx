@@ -8,6 +8,8 @@ export async function generateMetadata({ params }) {
     .replace(/[-_]/g, " ")
     .replace(/\b\w/g, (char) => char.toUpperCase());
 
+  console.log(formattedTitle);
+
   return {
     title: `${formattedTitle} - Ace Battle Mile`,
     description: `Learn about ${formattedTitle} in the Ace Battle Association.`,
