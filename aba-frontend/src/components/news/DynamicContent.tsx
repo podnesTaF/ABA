@@ -29,7 +29,8 @@ const DynamicContent = ({ item }: DynamicContentProps) => {
           mainTitleClassName="text-xl md:text-3xl"
         />
       ) : (
-        isMediaBlock(item) && (
+        isMediaBlock(item) &&
+        item?.image?.url && (
           <div className={"w-full flex flex-col gap-4"}>
             <Image
               src={getImageUrl(item.image.url)}

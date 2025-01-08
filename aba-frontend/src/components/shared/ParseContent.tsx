@@ -1,5 +1,6 @@
 "use client";
 import parse, { domToReact, HTMLReactParserOptions } from "html-react-parser";
+import Image from "next/image";
 
 export const ParseContent = ({
   text,
@@ -68,13 +69,14 @@ export const ParseContent = ({
             );
 
           case "br":
-            // Return a self-closing tag for <br>
             return <br />;
 
           case "img":
             // Correctly handle <img> as a self-closing tag with attributes
             return (
-              <img
+              <Image
+                width={720}
+                height={600}
                 src={domNode.attribs.src}
                 alt={domNode.attribs.alt || ""}
                 className={domNode.attribs.class || ""}
@@ -99,6 +101,8 @@ export const ParseContent = ({
                 }
               />
             );
+          case "meta":
+            return null;
           default:
             return (
               <Tag className={secondaryTitleClassName}>

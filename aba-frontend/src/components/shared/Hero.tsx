@@ -30,7 +30,7 @@ const Hero = ({
       className={`w-full flex justify-start items-start h-[480px] pb-16 md:pb-24 relative`}
     >
       <ParallaxImage
-        src={getImageUrl(content.backgroundImage.url)}
+        src={getImageUrl(content.backgroundImage?.url)}
         alt={content.backgroundImage.name}
         width={1440}
         height={600}
